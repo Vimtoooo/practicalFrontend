@@ -3,58 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to declare a variable</title>
+    <title>Design Tokens</title>
     <style>
-        :root { /* Root selector with global scope variables */
-            --bg-color: #4c87f5;
-            --main-color: seagreen;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background: var(--bg-color);
-            padding: 20px;
-        }
-        .movie {
-            background: white;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-        }
-        .movie h2 {
-            margin: 0 0 10px;
-        }
-        .movie p {
-            margin: 0 0 10px;
-        }
-        button {
-            color: black;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            /* Sets the background color to all buttons to seagreen */
-            background-color: var(--main-color);
-        }
+      /* Design tokens: colors, fonts, spacing */
+      :root {
+        --color-primary: #27ae60;
+        --secondary-color: #f39c12;
+        --color-text: #2c3e50;      
+        --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --spacing-small: 8px;
+        --spacing-medium: 16px;
+        --spacing-large: 24px;
+        --border-radius: 8px;
+        --bg-light: #e8f5e9;          
+      }
+    
+      body {
+        font-family: var(--font-base);
+        color: var(--color-text);
+        background: var(--bg-light);
+        margin: 0;
+        padding: var(--spacing-large);
+        line-height: 1.5;
+      }
+    
+      header {
+        text-align: center;
+        margin-bottom: var(--spacing-large);
+      }
+    
+      header h1 {
+        color: var(--color-primary);
+        margin-bottom: 0.2em;
+      }
+    
+      header p {
+        font-size: 1.1rem;
+        color: #4a6a4a;
+      }
+    
+      section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: var(--spacing-medium);
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+    
+      h2 {
+        margin-top: 0;
+        color: var(--secondary-color);
+      }
+    
+      article {
+        margin-bottom: var(--spacing-large);
+      }
+    
+      article:last-child {
+        margin-bottom: 0;
+      }
+    
+      .btn {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: var(--spacing-small) var(--spacing-small);
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+    
+      .btn:hover {
+        background-color: #1e8449;
+      }
     </style>
-</head>
-<body>
-    <h1>Today's Movies</h1>
-    <div class="movie">
-        <h2>Ocean Whispers</h2>
-        <p>A sailor discovers a hidden island and the secrets of the sea.</p>
-        <button>Buy Ticket</button>
-    </div>
+    </head>
+    <body>
     
-    <div class="movie">
-        <h2>Midnight Chase</h2>
-        <p>A detective races against the clock to stop a mysterious heist.</p>
-        <button>Buy Ticket</button>
-    </div>
+    <header>
+      <h1>Eat Healthy, Feel Great!</h1>
+      <p>Your guide to nutritious and delicious foods.</p>
+    </header>
     
-    <div class="movie">
-        <h2>Starlight Bakery</h2>
-        <p>A warm comedy about friendship and following your dreams.</p>
-        <button>Buy Ticket</button>
-</div>
+    <section>
+      <article>
+        <h2>Avocados</h2>
+        <p>Rich in healthy fats and fiber, avocados support heart health and keep you full longer.</p>
+        <button class="btn">Learn More</button>
+      </article>
+
+      <article>
+        <h2>Quinoa</h2>
+        <p>A complete protein source, quinoa is great for vegetarians and provides essential amino acids.</p>
+        <button class="btn">Learn More</button>
+      </article>
+
+      <article>
+        <h2>Blueberries</h2>
+        <p>Packed with antioxidants and vitamins, blueberries promote brain health and fight inflammation.</p>
+        <button class="btn">Learn More</button>
+      </article>
+    </section>
 </body>
 </html>

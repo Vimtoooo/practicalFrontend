@@ -110,3 +110,174 @@ To use the value stored in a variable, you must use the `var()` function:
 ##### Result:
 
 ![CSS Variables](Assets/Photos/Declaring%20Variables.jpg)
+
+### Variables for Design Tokens:
+
+Now that we know how to declare and use CSS variables, let's see how they help organize your design.
+
+**Design tokens** are special CSS variables that store your site's main colors, fonts, and other style values.
+
+B using design tokens, you keep your styles consistent and easy to update - just change the token once, and the whole site reflects the change!
+
+#### Basic Syntax:
+
+Her is how to create CSS variables for you design tokens:
+
+```css
+:root {
+  /* Colors */
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 24px;
+  
+  /* Typography */
+  --font-size-small: 12px;
+  --font-size-medium: 16px;
+  --font-size-large: 24px;
+}
+```
+
+And right here, we apply these design tokens to your elements:
+
+```css
+.button {
+  background-color: var(--primary-color);
+  padding: var(--spacing-small) var(--spacing-medium);
+  font-size: var(--font-size-medium);
+}
+
+.card {
+  border: 1px solid var(--secondary-color);
+  margin: var(--spacing-medium);
+  padding: var(--spacing-large);
+}
+```
+
+#### Why use Design Tokens?
+
+Using design tokens ensures consistency acros your website and makes updates easier, making the addition of new features and other variables simplified. But as the design token becomes robust, always keep variables organized based on specific sections, global/main styles, content spacing and so on.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design Tokens</title>
+    <style>
+      /* Design tokens: colors, fonts, spacing */
+      :root {
+        --color-primary: #27ae60;
+        --secondary-color: #f39c12;
+        --color-text: #2c3e50;      
+        --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        --spacing-small: 8px;
+        --spacing-medium: 16px;
+        --spacing-large: 24px;
+        --border-radius: 8px;
+        --bg-light: #e8f5e9;          
+      }
+    
+      body {
+        font-family: var(--font-base);
+        color: var(--color-text);
+        background: var(--bg-light);
+        margin: 0;
+        padding: var(--spacing-large);
+        line-height: 1.5;
+      }
+    
+      header {
+        text-align: center;
+        margin-bottom: var(--spacing-large);
+      }
+    
+      header h1 {
+        color: var(--color-primary);
+        margin-bottom: 0.2em;
+      }
+    
+      header p {
+        font-size: 1.1rem;
+        color: #4a6a4a;
+      }
+    
+      section {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: var(--spacing-medium);
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      }
+    
+      h2 {
+        margin-top: 0;
+        color: var(--secondary-color);
+      }
+    
+      article {
+        margin-bottom: var(--spacing-large);
+      }
+    
+      article:last-child {
+        margin-bottom: 0;
+      }
+    
+      .btn {
+        display: inline-block;
+        background-color: var(--color-primary);
+        color: white;
+        border: none;
+        padding: var(--spacing-small) var(--spacing-small);
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+      }
+    
+      .btn:hover {
+        background-color: #1e8449;
+      }
+    </style>
+    </head>
+    <body>
+    
+    <header>
+      <h1>Eat Healthy, Feel Great!</h1>
+      <p>Your guide to nutritious and delicious foods.</p>
+    </header>
+    
+    <section>
+      <article>
+        <h2>Avocados</h2>
+        <p>Rich in healthy fats and fiber, avocados support heart health and keep you full longer.</p>
+        <button class="btn">Learn More</button>
+      </article>
+
+      <article>
+        <h2>Quinoa</h2>
+        <p>A complete protein source, quinoa is great for vegetarians and provides essential amino acids.</p>
+        <button class="btn">Learn More</button>
+      </article>
+
+      <article>
+        <h2>Blueberries</h2>
+        <p>Packed with antioxidants and vitamins, blueberries promote brain health and fight inflammation.</p>
+        <button class="btn">Learn More</button>
+      </article>
+    </section>
+</body>
+</html>
+```
+
+##### Result:
+
+![Variables for Design Tokens](Assets/Photos/Design%20Tokens.jpg)
