@@ -281,3 +281,108 @@ Using design tokens ensures consistency acros your website and makes updates eas
 ##### Result:
 
 ![Variables for Design Tokens](Assets/Photos/Design%20Tokens.jpg)
+
+### Local Variables:
+
+You may have noticed we often use `:root` to declare variables, this is because `:root` is **global**. Variables defined here apply to the whole HTML page (as we mentioned before).
+
+But sometimes you want variables that only affect certain parts of the page. For example, imagine building an online shop with many product cards, you can create variables inside a `.card` class to style just those cards without affecting other elements.
+
+#### Basic Syntax:
+
+```css
+.card {
+  --card-color: orchid;
+  background-color: var(--card-color);
+}
+```
+
+This way, the variable only works inside `.card` elements (class), giving you more control over specific areas.
+
+#### Example of Usage:
+
+```html
+<html>
+<head>
+    <title>Local Variables</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">    <style>
+      /* Global variable for body background */
+      :root {
+        --body-bg: #000f26;
+        --font-family: "Playfair Display", serif;
+      }
+    
+      body {
+        background-color: var(--body-bg);
+        font-family: var(--font-family);
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+      }
+    
+      /* Card styles */
+      .card {
+        --card-bg: white;
+        --card-accent: coral;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 15px;
+        width: 250px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      }
+    
+      .card h3 {
+        color: var(--card-accent);
+        margin-top: 0;
+      }
+    
+      .card p {
+        font-size: 0.9rem;
+        color: #333;
+      }
+    
+      .card button {
+        border: none;
+        background-color: var(--card-accent);
+        color: #000f26;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 100%;
+      }
+    
+    </style>
+    </head>
+    <body>
+    
+    <div class="card">
+      <h3>Classic Sneakers</h3>
+      <p>Comfortable and stylish sneakers for everyday wear.</p>
+      <button>Buy Now</button>
+    </div>
+    
+    <div class="card special">
+      <h3>Luxury Watch</h3>
+      <p>Elegant watch with a unique design for special occasions.</p>
+      <button>Buy Now</button>
+    </div>
+    
+    <div class="card">
+      <h3>Leather Backpack</h3>
+      <p>Durable, spacious backpack made from premium leather.</p>
+      <button>Buy Now</button>
+    </div>
+    
+    </body>
+</html>
+```
+
+##### Result:
+
+![Local Variables](Assets/Photos/Local%20Variables.jpg)
