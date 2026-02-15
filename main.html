@@ -1,112 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Design Tokens</title>
-    <style>
-      /* Design tokens: colors, fonts, spacing */
-      :root {
-        --color-primary: #27ae60;
-        --secondary-color: #f39c12;
-        --color-text: #2c3e50;      
-        --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        --spacing-small: 8px;
-        --spacing-medium: 16px;
-        --spacing-large: 24px;
-        --border-radius: 8px;
-        --bg-light: #e8f5e9;          
-      }
-    
-      body {
-        font-family: var(--font-base);
-        color: var(--color-text);
-        background: var(--bg-light);
-        margin: 0;
-        padding: var(--spacing-large);
-        line-height: 1.5;
-      }
-    
-      header {
-        text-align: center;
-        margin-bottom: var(--spacing-large);
-      }
-    
-      header h1 {
-        color: var(--color-primary);
-        margin-bottom: 0.2em;
-      }
-    
-      header p {
-        font-size: 1.1rem;
-        color: #4a6a4a;
-      }
-    
-      section {
-        max-width: 700px;
-        margin: 0 auto;
-        padding: var(--spacing-medium);
-        background: white;
-        border-radius: var(--border-radius);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      }
-    
-      h2 {
-        margin-top: 0;
-        color: var(--secondary-color);
-      }
-    
-      article {
-        margin-bottom: var(--spacing-large);
-      }
-    
-      article:last-child {
-        margin-bottom: 0;
-      }
-    
-      .btn {
-        display: inline-block;
-        background-color: var(--color-primary);
+  <title>CSS Variables Recap Challenge</title>
+  <style>
+    /* Global Variables */
+    :root {
+      --main-bg: #fdf00f;
+      --main-font: 'Segoe UI', serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-bg);
+      font-family: var(--main-font);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      padding: 20px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .hero {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/c/c0/Healthy_Food_-_Colourful_Fruit_and_Veg_-_50191699151.jpg') center/cover no-repeat;
         color: white;
+        text-align: center;
+        padding: 30px 20px 50px 20px;
+        border-radius: 10px;
+        margin: 10px;
+        }
+
+    .hero button {
+        background-color: var(--primary-color);
+        padding: 10px 20px;
         border: none;
-        padding: var(--spacing-small) var(--spacing-small);
-        border-radius: var(--border-radius);
-        font-weight: 600;
+        border-radius: 5px;
+        font-weight: bold;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-        text-decoration: none;
-      }
-    
-      .btn:hover {
-        background-color: #1e8449;
-      }
-    </style>
-    </head>
-    <body>
-    
-    <header>
-      <h1>Eat Healthy, Feel Great!</h1>
-      <p>Your guide to nutritious and delicious foods.</p>
-    </header>
-    
-    <section>
-      <article>
-        <h2>Avocados</h2>
-        <p>Rich in healthy fats and fiber, avocados support heart health and keep you full longer.</p>
-        <button class="btn">Learn More</button>
-      </article>
+        color: white;
+    }
 
-      <article>
-        <h2>Quinoa</h2>
-        <p>A complete protein source, quinoa is great for vegetarians and provides essential amino acids.</p>
-        <button class="btn">Learn More</button>
-      </article>
+    .card {
+      /* Local Variable for Card */
+      --card-accent: tomato;
 
-      <article>
-        <h2>Blueberries</h2>
-        <p>Packed with antioxidants and vitamins, blueberries promote brain health and fight inflammation.</p>
-        <button class="btn">Learn More</button>
-      </article>
-    </section>
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      color: var(--card-accent);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .card button {
+      background-color: var(--card-accent);
+      margin-top: 10px;
+      border: none;
+      padding: 8px 12px;
+      color: black;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Healthy Recipes</h1>
+    <p>Fresh, tasty, and colorful meals you can make at home</p>
+  </header>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Eat Healthy, Live Happy</h2>
+    <button>Explore Recipes</button>
+  </div>
+</section>
+  <main>
+    <div class="card">
+      <h2>Avocado Salad</h2>
+      <p>A healthy salad with fresh avocado, tomatoes, and herbs.</p>
+      <button>Read Recipe</button>
+    </div>
+
+    <div class="card special">
+      <h2>Berry Smoothie</h2>
+      <p>Refreshing smoothie with blueberries, strawberries, and yogurt.</p>
+      <button>Read Recipe</button>
+    </div>
+
+    <div class="card">
+      <h2>Quinoa Bowl</h2>
+      <p>Nutritious quinoa with roasted vegetables and chickpeas.</p>
+      <button>Read Recipe</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Healthy Recipes. All rights reserved.
+  </footer>
+
 </body>
 </html>

@@ -181,7 +181,7 @@ Using design tokens ensures consistency acros your website and makes updates eas
         --spacing-medium: 16px;
         --spacing-large: 24px;
         --border-radius: 8px;
-        --bg-light: #e8f5e9;          
+        --bg-light: #e8f5e9;
       }
     
       body {
@@ -386,3 +386,164 @@ This way, the variable only works inside `.card` elements (class), giving you mo
 ##### Result:
 
 ![Local Variables](Assets/Photos/Local%20Variables.jpg)
+
+### Recap - Variables:
+
+Here is the recap on **variables**:
+
+* **Declaring Variables**: Variables must be declared inside a selector (either inside a `:root` or a specific element/class/id `.nameOfClass`), with the syntax `--var-name: value;`:
+    - `--var-name`: The variable name, that should always start with two dashes/hyphens.
+    - `value`: The desired value that the variable will hold, this can represent any possible value in the CSS context.
+* **Using Variables**: Manipulate with the `var()` function to effectively mention global or local-scope variables following the syntax `color: var(--color-var);`:
+    - `color`: The `color` property used to add coloring to text.
+    - `var(--color-var)`: The section which mentions the variable inside the `var()` function, this variable stores the desired value like `blue` or `pink`...
+
+#### Example of a Webpage:
+
+```html
+<html>
+<head>
+  <title>CSS Variables Recap Challenge</title>
+  <style>
+    /* Global Variables */
+    :root {
+      --main-bg: #fdf00f;
+      --main-font: 'Segoe UI', serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-bg);
+      font-family: var(--main-font);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      padding: 20px;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .hero {
+        background: url('https://upload.wikimedia.org/wikipedia/commons/c/c0/Healthy_Food_-_Colourful_Fruit_and_Veg_-_50191699151.jpg') center/cover no-repeat;
+        color: white;
+        text-align: center;
+        padding: 30px 20px 50px 20px;
+        border-radius: 10px;
+        margin: 10px;
+        }
+
+    .hero button {
+        background-color: var(--primary-color);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+    }
+
+    .card {
+      /* Local Variable for Card */
+      --card-accent: tomato;
+
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      color: var(--card-accent);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .card button {
+      background-color: var(--card-accent);
+      margin-top: 10px;
+      border: none;
+      padding: 8px 12px;
+      color: black;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #eee;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.85rem;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Healthy Recipes</h1>
+    <p>Fresh, tasty, and colorful meals you can make at home</p>
+  </header>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Eat Healthy, Live Happy</h2>
+    <button>Explore Recipes</button>
+  </div>
+</section>
+  <main>
+    <div class="card">
+      <h2>Avocado Salad</h2>
+      <p>A healthy salad with fresh avocado, tomatoes, and herbs.</p>
+      <button>Read Recipe</button>
+    </div>
+
+    <div class="card special">
+      <h2>Berry Smoothie</h2>
+      <p>Refreshing smoothie with blueberries, strawberries, and yogurt.</p>
+      <button>Read Recipe</button>
+    </div>
+
+    <div class="card">
+      <h2>Quinoa Bowl</h2>
+      <p>Nutritious quinoa with roasted vegetables and chickpeas.</p>
+      <button>Read Recipe</button>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Healthy Recipes. All rights reserved.
+  </footer>
+
+</body>
+</html>
+```
+
+##### Result:
+
+![Recap - Variables](Assets/Photos/Recap%20-%20Variables.jpg)
