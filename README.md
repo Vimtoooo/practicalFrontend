@@ -806,3 +806,146 @@ Then, utilize media queries to adjust for larger screens:
 ##### Result:
 
 ![Mobile-first Typography](Assets/Videos/chrome_h1tzMIaBIl.gif)
+
+### Mobile-First Navigation:
+
+**Mobile-first navigation** means starting with a simple, touch-friendly menu for small screens, then enhancing it for larger screens.
+
+Start with a basic mobile navigation structure: inside the `<nav>` element, include a button and a list.
+
+#### Basic Syntax:
+
+```html
+<nav class="main-nav">
+  <button class="menu-toggle">Menu</button>
+  <ul class="nav-list">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+```
+
+After, we apply mobile styling on small screens, where it shows a "menu" button and hide the list.
+
+```css
+.menu-toggle {
+  display: block;
+  /* some more styles... */
+}
+
+.nav-list {
+  display: none;
+  /* some more styles... */
+}
+```
+
+Next, we use media queries for larger screens. On larger screens, we will show the menu as a horizontal list at the top and hide a "menu" button.
+
+```css
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+  
+  .nav-list {
+    display: flex;
+  }
+}
+```
+
+This approach ensures the navigation is optimized for mobile devices first, then enhanced for larger screens.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile-First Navigation</title>
+  <style>
+    :root {
+      --primary-color: #4a6de5;
+      --text-color: #333333;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-weight: bold;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin: 10px;
+    }
+    
+    .menu-toggle {
+      display: block;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    
+    .nav-list {
+      /* display: none; */
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+      width: 100%;
+      gap: 1px;
+    }
+  
+    .nav-list li a {
+      color: var(--text-color);
+      text-decoration: none;
+      display: block;
+      padding: 0.5rem 0;
+    }
+    
+    @media (min-width: 768px) {
+      .menu-toggle {
+        display: none;
+      }
+      
+      .nav-list {
+        display: flex;
+        margin: 0;
+        width: auto;
+      }
+      
+      .nav-list li {
+        margin: 0 0 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="#" class="logo">MySite</a>
+      <button class="menu-toggle">Menu</button>
+      <ul class="nav-list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</body>
+</html>
+```
+
+##### Result:
+
+![Mobile-first Navigation](Assets/Videos/chrome_ApO1Dft6cI.gif)
