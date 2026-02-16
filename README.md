@@ -644,3 +644,165 @@ This approach ensures your site works well on small screens first, then enhances
 ##### Result:
 
 ![A mobile-first strategy](Assets/Videos/NVIDIA_Overlay_2Kikjrue5p.gif)
+
+### Mobile-First Typography:
+
+**Mobile-first typography** means starting with text styles that are easy to read on small screens, then adjusting them for larger screens with media queries.
+
+We use it because mobile users need **clear, legible fonts** that work well on small displays. If text is too small, et becomes hard to read, and if it's too large on desktop, it can look awkward.
+
+#### Setting up the Mobile-First Typography:
+
+Set up your bas font-size for mobile:
+
+```css
+/* Mobile-first styles */
+body {
+  font-size: 16px; /* base size for mobile */
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+```
+
+Then, utilize media queries to adjust for larger screens:
+
+```css
+/* Larger screens */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+```
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile-First Typography</title>
+  <style>
+    /* ===== Mobile-First Styles ===== */
+    :root {
+      --base-font-size: 16px;
+      --base-heading-font-size: 24px;
+    }
+
+    body {
+      font-size: var(--base-font-size);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      background-color: #f0f8ff;
+      color: #333;
+    }
+
+    header {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/a/af/Female_polar_bear_%28Ursus_maritimus%29_with_cub%2C_Svalbard.jpg')
+                  center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: var(--base-heading-font-size);
+      margin: 0;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #2c6e91;
+      font-size: 1.25rem;
+    }
+
+    p { font-size: var(--base-font-size); }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #2c6e91;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Larger Screens ===== */
+    @media (min-width: 768px) {
+      header h1 { font-size: 36px; }
+      p { font-size: 20px; }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Polar Bears – Kings of the Arctic</h1>
+    <p class="subtitle">Discover the life of the world's largest land carnivore</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>About Polar Bears</h2>
+      <p>
+        Polar bears are magnificent animals that live in the Arctic region. 
+        They are excellent swimmers, using their large paws to paddle through icy waters 
+        in search of seals, their main source of food. These bears have thick layers of 
+        fat and dense fur to keep them warm in extreme cold.
+      </p>
+    </section>
+
+    <section>
+      <h2>Interesting Facts</h2>
+      <ul>
+        <li>Polar bears can weigh up to 700 kg (1,500 lbs).</li>
+        <li>They have black skin under their white fur to absorb heat.</li>
+        <li>Polar bears can swim for days without resting.</li>
+        <li>They are listed as vulnerable due to climate change.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Protecting Polar Bears</h2>
+      <p>
+        Climate change and melting sea ice threaten polar bear habitats. 
+        Protecting these amazing creatures requires global efforts to 
+        reduce greenhouse gas emissions and preserve their Arctic environment.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Arctic Wildlife. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+```
+
+##### Result:
+
+![Mobile-first Typography](Assets/Videos/chrome_h1tzMIaBIl.gif)
