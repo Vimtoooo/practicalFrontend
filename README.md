@@ -547,3 +547,100 @@ Here is the recap on **variables**:
 ##### Result:
 
 ![Recap - Variables](Assets/Photos/Recap%20-%20Variables.jpg)
+
+## Mobile-First Strategy:
+
+### What "mobile-first" means:
+
+**Mobile-first** is a design strategy where you build your website for mobile devices first, then progressively enhance it for larger screens.
+
+The main idea is that most users now brows th wb on their phons, so starting small ensures your site works wll for the majority of visitors.
+
+#### Starting Point for Writing Mobile Styles:
+
+The first step is to start writing mobile styles:
+
+```css
+body {
+  font-size: 16px;
+  padding: 10px;
+}
+```
+
+Then you would use **media queries** to adapt your design for larger screens:
+
+```css
+/* Styles for devices wider than 768px */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+    padding: 20px;
+  }
+}
+```
+
+This approach ensures your site works well on small screens first, then enhances the experience for users on larger devices.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>What “mobile-first” means</title>
+  <style>
+    /* Mobile-first Approach */
+    .menu {
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      max-height: 250px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .menu li {
+      margin-bottom: 10px;
+      background-color: rgb(25, 220, 10);
+      margin-right: 10px;
+      padding: 10px;
+    }
+    
+    .menu a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+    }
+    
+    /* Bigger screen styles */
+    @media (min-width: 768px) {
+      .menu {
+        display: flex;
+        flex-direction: row;
+        padding: 3px;
+      }
+      
+      .menu li {
+      
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul class="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
+```
+
+##### Result:
+
+![A mobile-first strategy](Assets/Videos/NVIDIA_Overlay_2Kikjrue5p.gif)
