@@ -949,3 +949,108 @@ This approach ensures the navigation is optimized for mobile devices first, then
 ##### Result:
 
 ![Mobile-first Navigation](Assets/Videos/chrome_ApO1Dft6cI.gif)
+
+### Mobile-First Images:
+
+**Mobile-first images** means making sure pictures work well on small screens first, then enhancing them for larger displays. On mobile, big heavy images can slow down loading, so e start with **smaller, optimized versions**. As screens get bigger, we can swap in higher-quality images.
+
+#### How to Apply the Principles:
+
+For this operation, we will use the HTML `<picture>` element to serve different image sizes based on screen width.
+
+* `<picture>`: The wrapper that holds multiple image options for different screens.
+* `<source>`: Defines which image to load (`srcset`) and under what condition (`media`). Here is an example: A phone with less or equal to 600px (≤600px), would generate a small image. But for a tablet with a screen size at the range of (≤1024px), would generate a medium image.
+* `<img>`: This represents the fallback if no `<source>` matches, ususally the large desktop image. Also contains the `alt` text.
+
+#### Basic Syntax:
+
+```html
+<picture>
+  <source srcset="small-image.jpg" media="(max-width: 600px)">
+  <source srcset="medium-image.jpg" media="(max-width: 1024px)">
+  <img src="large-image.jpg" alt="Description of image">
+</picture>
+```
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile-First Images</title>
+  <style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 1rem;
+      line-height: 1.6;
+      background: #0a0a23;
+      color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #ffd369;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 2.25rem;
+      }
+
+      p {
+        font-size: 1.125rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header>
+    <h1>The Moon</h1>
+  </header>
+
+  <main class="content">
+    <p>
+      The Moon is Earth's only natural satellite and has fascinated humans for thousands of years. 
+      It influences tides, inspires myths, and continues to be a target for exploration.
+    </p>
+
+    <picture>
+      <source srcset="https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg" media="(min-width: 768px)">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/330px-FullMoon2010.jpg" alt="Moon in the night sky">
+    </picture>
+
+    <p>
+      Mobile-first images ensure the page loads fast on smaller devices while still looking 
+      beautiful on bigger screens.
+    </p>
+  </main>
+</body>
+</html>
+```
+
+##### Result:
+
+![Mobile-first Images](Assets/Videos/Ix0DhCRRQ3.gif)
