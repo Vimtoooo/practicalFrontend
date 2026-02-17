@@ -1054,3 +1054,130 @@ For this operation, we will use the HTML `<picture>` element to serve different 
 ##### Result:
 
 ![Mobile-first Images](Assets/Videos/Ix0DhCRRQ3.gif)
+
+### Mobile-First Forms:
+
+Forms are one of the most important parts of the web - users type, tap and interact ith them constantly. When designing forms for mobile first, we focus on **usability** on **small screens**.
+
+#### Key Importances:
+
+* Make inputs and buttons bigger so users can easily type and tap.
+* Stack fields vertically and use full-width inputs.
+* Add padding and spacing for fingers.
+
+#### Example of Smaller Screens:
+
+Here is an example for mobile:
+
+```css
+input, button {
+  width: 100%;       /* full width for small screens */
+  padding: 0.75rem;  /* easier to tap */
+  font-size: 1rem;   /* readable text */
+}
+```
+
+##### What is the REM Unit?
+
+The `rem` unit stands for "root em", which is a **relative unit of measurement** that is always based on the `font-size` of the root element of the document (the `<html>` element).
+
+This means that no matter how deeply nested an element is in the HTML structure, a `rem` value used for any of its properties (like `font-size`, `margin`, `padding`, `width`) will consistently refer back to the single, global font size defined on the `<html>` tag.
+
+#### Transferring to Larger Screens:
+
+The, for **larger screens (tablets or desktops), we enhance the layout:
+
+* Center the form on the page.
+* Place some fields side by side instead of stacking.
+* Adjust widths and spacing for better appearance.
+
+#### Example of Larger Screens:
+
+```css
+@media (min-width: 768px) {
+  form {
+    max-width: 500px;  /* center and limit width */
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;         /* side-by-side inputs */
+  }
+}
+```
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mobile-First Forms</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      background-color: #f0f4f8;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-right: 1.8rem;
+      gap: 1rem;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 0.1rem;
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Larger screens */
+    @media (min-width: 768px) {
+      form {
+        max-width: 600px;
+        margin: 0 auto; /* center form */
+      }
+
+      .row {
+        display: flex;
+        gap: 1rem; /* side-by-side fields */
+      }
+
+      .row input {
+        width: 100%; /* split space equally */
+      }
+
+      textarea { width: 573px; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <form>
+    <div class="row">
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+    </div>
+    <textarea placeholder="Your Message" rows="4" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>
+```
+
+##### Result:
+
+![Mobile-first Forms](Assets/Videos/NVIDIA_Overlay_yD6mjAxi11.gif)
