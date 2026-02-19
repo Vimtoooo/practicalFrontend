@@ -653,7 +653,7 @@ We use it because mobile users need **clear, legible fonts** that work well on s
 
 #### Setting up the Mobile-First Typography:
 
-Set up your bas font-size for mobile:
+Set up your base font-size for mobile:
 
 ```css
 /* Mobile-first styles */
@@ -1057,7 +1057,7 @@ For this operation, we will use the HTML `<picture>` element to serve different 
 
 ### Mobile-First Forms:
 
-Forms are one of the most important parts of the web - users type, tap and interact ith them constantly. When designing forms for mobile first, we focus on **usability** on **small screens**.
+Forms are one of the most important parts of the web - users type, tap and interact with them constantly. When designing forms for mobile first, we focus on **usability** on **small screens**.
 
 #### Key Importances:
 
@@ -1181,3 +1181,335 @@ The, for **larger screens (tablets or desktops), we enhance the layout:
 ##### Result:
 
 ![Mobile-first Forms](Assets/Videos/NVIDIA_Overlay_yD6mjAxi11.gif)
+
+### Recap - Mobile-First Strategy:
+
+* **Mobile-First Meaning**: The mobile-first strategy consists of the development of an UI that is primarily targeting mobile users (where the styles are tweaked for smaller screens by default), but also progressively implementing styles for larger screens later on.
+The developer would first initiate styles for mobile users:
+
+```css
+body {
+  font-size: 15px;
+  padding: 10px;
+}
+```
+
+Then they would manipulate with **media queries** to verify if the size of the user's screen is **greater or equal to 768px**, then to override the mobile styles and replace them with styles that would be suitable for larger screens:
+
+```css
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+    padding: 20px;
+  }
+}
+```
+
+* **Mobile-First Typography**: Starts with text styling and modifications for mobile screen sizes, before moving on to larger screens.
+
+Set up your base font-size for mobile:
+
+```css
+/* Mobile-first styles */
+body {
+  font-size: 16px; /* base size for mobile */
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+```
+
+Then, utilize media queries to adjust for larger screens:
+
+```css
+/* Larger screens */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+```
+
+* **Mobile-first navigation**: Starting with a simple, touch-friendly menu for small screens, then enhancing it for larger screens.
+
+```html
+<nav class="main-nav">
+  <button class="menu-toggle">Menu</button>
+  <ul class="nav-list">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+```
+
+After, we apply mobile styling on small screens, where it shows a "menu" button and hide the list.
+
+```css
+.menu-toggle {
+  display: block;
+  /* some more styles... */
+}
+
+.nav-list {
+  display: none;
+  /* some more styles... */
+}
+```
+
+Next, we use media queries for larger screens. On larger screens, we will show the menu as a horizontal list at the top and hide a "menu" button.
+
+```css
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+  
+  .nav-list {
+    display: flex;
+  }
+}
+```
+
+* **Mobile-first images**: Make sure pictures work well on small screens first, then enhancing them for larger displays. Take a look at the HTML structure:
+
+```html
+<picture>
+  <source srcset="small-image.jpg" media="(max-width: 600px)">
+  <source srcset="medium-image.jpg" media="(max-width: 1024px)">
+  <img src="large-image.jpg" alt="Description of image">
+</picture>
+```
+
+  -  `<picture>`: The wrapper that holds multiple image options for different screens.
+  - `<source>`: Defines which image to load (`srcset`) and under what condition (`media`). Here is an example: A phone with less or equal to 600px (≤600px), would generate a small image. But for a tablet with a screen size at the range of (≤1024px), would generate a medium image.
+  -  `<img>`: This represents the fallback if no `<source>` matches, usually the large desktop image. Also contains the `alt` text.
+
+* **Mobile-First Forms**: Same concept applies, but focussing primarily on legibility and interactivity for an user-friendly UI.
+
+Here, we define your styles for mobile:
+
+```css
+input, button {
+  width: 100%;       /* full width for small screens */
+  padding: 0.75rem;  /* easier to tap */
+  font-size: 1rem;   /* readable text */
+}
+```
+
+Then move to larger screen styles:
+
+```css
+@media (min-width: 768px) {
+  form {
+    max-width: 500px;  /* center and limit width */
+    margin: 0 auto;
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;         /* side-by-side inputs */
+  }
+}
+```
+
+* **`rem` Unit**: The `rem` unit stands for "root em", which is a **relative unit of measurement** that is always based on the `font-size` of the root element of the document (the `<html>` element).
+Using the `rem` unit in CSS for mobile styling is highly recommended primarily for **enhanced accessibility and simplified responsive design and maintenance**. Because `rem` units are relative to the root (`<html>`) element's font size, they ensure <i>consistent and proportional scaling across various devices and user preferences</i>.
+
+#### Example of a Website:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile-First Profile</title>
+  <style>
+    :root {
+      --text-align: center;
+      --image-align: center;
+      --primary-font: Arial, sans-serif;
+      --heading-font: 'Helvetica', sans-serif;
+      --h1-size: 2rem;
+      --h2-size: 1.5rem;
+      --body-font-size: 16px;
+      --primary-color: #4a90e2;
+      --secondary-color: #f0f4f8;
+      --image-align: center;
+      --form-align: center;
+      --nav-align: center;
+    }
+
+    body {
+      text-align: var(--text-align);
+      font-family: var(--primary-font);
+      font-size: var(--body-font-size);
+      margin: 0;
+      padding: 20px;
+      background-color: var(--secondary-color);
+    }
+
+    h1 {
+      font-family: var(--heading-font);
+      font-size: var(--h1-size);
+      color: var(--primary-color);
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      font-family: var(--heading-font);
+      font-size: var(--h2-size);
+      color: #333;
+      margin-top: 0;
+    }
+
+    nav {
+      margin-bottom: 20px;
+    }
+
+    .menu-button {
+      display: block;
+      padding: 10px 15px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .nav-list {
+      display: none;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-list li {
+      margin-bottom: 10px;
+    }
+
+    .nav-list li a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    section p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 100%;
+      gap: 10px;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Media queries for larger screens */
+    @media (min-width: 768px) {
+      .menu-button { display: none; }
+      .nav-list {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .nav-list li {
+        margin-bottom: 0;
+      }
+
+      .form-section {
+        display: grid;
+        grid-template-columns: 1fr minmax(300px, 700px) 1fr; /* Adjust min/max as needed */
+        align-items: center;
+        width: 100%;
+      }
+
+      .form-container {
+        grid-column: 2; /* Center column */
+      }
+
+      input[name="name-input"] { grid-area: name; }
+      input[name="email-input"] { grid-area: email; }
+      input[name="text-input"] { grid-area: text; }
+      input[name="submit-button"] { grid-area: submit; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="menu-button">Menu</button>
+    <ul class="nav-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Jane Doe</h1>
+    <h2>Web Developer & Designer</h2>
+  </header>
+
+  <section>
+    <picture class="image-container">
+      <source srcset="https://upload.wikimedia.org/wikipedia/commons/1/1f/Woman_1.jpg" media="(min-width: 768px)">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Woman_1.jpg/250px-Woman_1.jpg" alt="Profile Image" class="profile-img">
+    </picture>
+  </section>
+
+  <section>
+    <p>Welcome to my profile! I specialize in creating mobile-first, responsive websites that look great on any device. My focus is on performance, accessibility, and clean design.</p>
+  </section>
+
+  <section class="form-section">
+    <div></div>
+    <form class="form-container">
+      <input type="text" name="name-input" placeholder="Your Name">
+      <input type="email" name="email-input" placeholder="Your Email">
+      <textarea placeholder="Your Message" name="text-input"></textarea>
+      <button type="submit" name="submit-button">Send Message</button>
+    </form>
+    <div></div>
+  </section>
+</body>
+</html>
+```
+
+##### Result:
+
+![Recap - Mobile-first Strategy](Assets/Videos/NVIDIA_Overlay_7GFPFUl1pV.gif)
