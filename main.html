@@ -1,101 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Dark/Light Mode Basics</title>
+  <title>Accent Colors & Highlighting</title>
   <style>
-    /* Default light theme */
     :root {
-      --background-color: #f0f4f8;
-      --text-color: #222222;
-      --heading-color: #003366;
-      --button-bg: #ffcc00;
-      --button-text: #000000;
-    }
-
-    .dark-mode {
-      --background-color: #0f1821;
-      --text-color: #ffffff;
-      --heading-color: #ffcc99;
-      --button-bg: #0033ff;
-      --button-text: #ffffff;
+      --primary-color: #1e90ff;
+      --text-color: #222;
+      --bg-color: #f9f9f9;
+      --accent-color: rgb(100, 250, 10);
     }
 
     body {
-      background-color: var(--background-color);
-      color: var(--text-color);
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       margin: 0;
       padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
     header {
-      background-color: var(--heading-color);
+      background-color: var(--primary-color);
       color: white;
-      padding: 2rem;
+      padding: 1rem;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
     }
 
     main {
       padding: 2rem;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
-    h2 {
-      color: var(--heading-color);
-      margin-top: 1.5rem;
+    .card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    p {
-      line-height: 1.6;
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary-color);
     }
 
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--button-bg);
-      color: var(--button-text);
+    .card button {
+      color: white;
+      background-color: var(--accent-color);
       border: none;
+      padding: 0.5rem 1rem;
       border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
       cursor: pointer;
     }
 
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      /* background-color: var(--accent-color); */
+      text-decoration: underline;
+    }
+
+    .card button:hover { background-color: var(--primary-color); }
+
+    .highlight {
+      color: var(--accent-color);
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
     footer {
-      background-color: var(--heading-color);
+      background-color: #222;
       color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
     }
+
+    footer a {
+      margin: 0 0.5rem;
+    }
   </style>
 </head>
-<body class="dark-mode">
+<body>
   <header>
-    <h1>Olympic Games 2025</h1>
-    <p>Celebrating sports, unity, and excellence</p>
+    <h1>Summer Music Festival</h1>
+    <p>Experience <span class="highlight">unforgettable</span> music and vibes all summer long!</p>
   </header>
 
   <main>
-    <h2>Top Sports</h2>
-    <p>From track and field to swimming and gymnastics, the Olympics showcase the best athletes in the world.</p>
-    <a href="#" class="button">See Medal Winners</a>
+    <div class="card">
+      <h2>Rock Stage</h2>
+      <p>Join the rock legends for an unforgettable night of music! <a href="#">More info</a></p>
+      <button>Learn More</button>
+    </div>
 
-    <h2>Host Cities</h2>
-    <p>Explore the exciting host cities where athletes come together to compete at the highest level.</p>
-    <a href="#" class="button">Learn More</a>
+    <div class="card">
+      <h2>Jazz Stage</h2>
+      <p>Relax with smooth jazz performances under the open sky. <a href="#">Schedule</a></p>
+      <button>Learn More</button>
+    </div>
 
-    <h2>History</h2>
-    <p>The Olympic Games have a rich history dating back to ancient Greece, promoting peace, friendship, and fair competition.</p>
+    <div class="card">
+      <h2>EDM Stage</h2>
+      <p>Dance all night with top DJs spinning the hottest tracks. <a href="#">Lineup</a></p>
+      <button>Learn More</button>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Olympic Games. All rights reserved.
+    <p>Follow us on <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
   </footer>
 </body>
 </html>

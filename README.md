@@ -1825,3 +1825,164 @@ However, to switch modes dynamically, we ned a bit of help from another language
 ##### Result:
 
 ![Dark/light Mode Basics](Assets/Videos/chrome_Vlft7H4DK8.gif)
+
+### Accent Colors & Highlighting:
+
+Accent colors help important elements stand out, such as buttons, links, call-to-action sections, or highlighted text. You can define them ass CSS variables (for example: `--primary-color` `--accent-color`, `--highlight-color`) and use them consistently throughout your site. Hover states and highlights can also use these variables, making it easy to create a visually appealing and cohesive theme while drawing attention to key content.
+
+#### Basic Syntax:
+
+Create a CSS variable for your accent color:
+
+```css
+:root {
+  --accent-color: #ff6b6b;
+}
+```
+
+Use the accent color for important interactive elements like buttons:
+
+```css
+.button-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+```
+
+And highlight active navigation items using the accent color:
+
+```css
+.nav-item.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+```
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accent Colors & Highlighting</title>
+  <style>
+    :root {
+      --primary-color: #1e90ff;
+      --text-color: #222;
+      --bg-color: #f9f9f9;
+      --accent-color: rgb(100, 250, 10);
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main {
+      padding: 2rem;
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .card {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--primary-color);
+    }
+
+    .card button {
+      color: white;
+      background-color: var(--accent-color);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      /* background-color: var(--accent-color); */
+      text-decoration: underline;
+    }
+
+    .card button:hover { background-color: var(--primary-color); }
+
+    .highlight {
+      color: var(--accent-color);
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      margin: 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Summer Music Festival</h1>
+    <p>Experience <span class="highlight">unforgettable</span> music and vibes all summer long!</p>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Rock Stage</h2>
+      <p>Join the rock legends for an unforgettable night of music! <a href="#">More info</a></p>
+      <button>Learn More</button>
+    </div>
+
+    <div class="card">
+      <h2>Jazz Stage</h2>
+      <p>Relax with smooth jazz performances under the open sky. <a href="#">Schedule</a></p>
+      <button>Learn More</button>
+    </div>
+
+    <div class="card">
+      <h2>EDM Stage</h2>
+      <p>Dance all night with top DJs spinning the hottest tracks. <a href="#">Lineup</a></p>
+      <button>Learn More</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>Follow us on <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
+  </footer>
+</body>
+</html>
+```
+
+##### Result:
+
+![Accent Colors & Highlighting](Assets/Photos/Accent%20colors%20&%20highlighting.jpg)
