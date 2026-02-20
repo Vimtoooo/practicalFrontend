@@ -1668,3 +1668,160 @@ button {
 ##### Result:
 
 ![Theming in CSS](Assets/Photos/theming%20in%20CSS.jpg)
+
+### Dark/Light Mode Basics:
+
+The dark/light mode is a popular feature that allows users to choose their preferred color scheme. Let's implement a basic dark/light mode toggle using CSS variables.
+
+#### Basic Syntax:
+
+First, define the light mode color variables in the root element and apply them for different elements.
+
+```css
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --heading-color: #000000;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+```
+
+Next, create a dark mode class that will override these variables:
+
+```css
+.dark-mode {
+  --background-color: #333333;
+  --text-color: #f5f5f5;
+  --heading-color: #ffffff;
+}
+```
+
+New, the `.dark-mode` class **controls the theme** - when this class is added to the `<body>`, the variables change and all the elements using them update automatically.
+
+```html
+<body class="dark-mode">
+<!-- your page content here -->
+</body>
+```
+
+#### Switching Modes:
+
+However, to switch modes dynamically, we ned a bit of help from another language called **JavaScript (JS)** to add or remove the `.dark-mode` class. In this lesson, you can test it manually by adding or removing the class on the `<body>` tag.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dark/Light Mode Basics</title>
+  <style>
+    /* Default light theme */
+    :root {
+      --background-color: #f0f4f8;
+      --text-color: #222222;
+      --heading-color: #003366;
+      --button-bg: #ffcc00;
+      --button-text: #000000;
+    }
+
+    .dark-mode {
+      --background-color: #0f1821;
+      --text-color: #ffffff;
+      --heading-color: #ffcc99;
+      --button-bg: #0033ff;
+      --button-text: #ffffff;
+    }
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--heading-color);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: var(--heading-color);
+      margin-top: 1.5rem;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: var(--heading-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body class="dark-mode">
+  <header>
+    <h1>Olympic Games 2025</h1>
+    <p>Celebrating sports, unity, and excellence</p>
+  </header>
+
+  <main>
+    <h2>Top Sports</h2>
+    <p>From track and field to swimming and gymnastics, the Olympics showcase the best athletes in the world.</p>
+    <a href="#" class="button">See Medal Winners</a>
+
+    <h2>Host Cities</h2>
+    <p>Explore the exciting host cities where athletes come together to compete at the highest level.</p>
+    <a href="#" class="button">Learn More</a>
+
+    <h2>History</h2>
+    <p>The Olympic Games have a rich history dating back to ancient Greece, promoting peace, friendship, and fair competition.</p>
+  </main>
+
+  <footer>
+    &copy; 2025 Olympic Games. All rights reserved.
+  </footer>
+</body>
+</html>
+```
+
+##### Result:
+
+![Dark/light Mode Basics](Assets/Videos/chrome_Vlft7H4DK8.gif)
