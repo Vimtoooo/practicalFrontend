@@ -1,183 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mobile-First Profile</title>
+  <title>Theming in CSS</title>
   <style>
+    /* Theming with CSS Variables */
     :root {
-      --text-align: center;
-      --image-align: center;
-      --primary-font: Arial, sans-serif;
-      --heading-font: 'Helvetica', sans-serif;
-      --h1-size: 2rem;
-      --h2-size: 1.5rem;
-      --body-font-size: 16px;
-      --primary-color: #4a90e2;
-      --secondary-color: #f0f4f8;
-      --image-align: center;
-      --form-align: center;
-      --nav-align: center;
+      --primary-color: purple;
+      --secondary-color: violet;
+      --bg-color: #f0c4f8;
+      --text-color: #333333;
+      --font-family: 'Arial, sans-serif';
+      --margin: 1rem;
     }
 
     body {
-      text-align: var(--text-align);
-      font-family: var(--primary-font);
-      font-size: var(--body-font-size);
       margin: 0;
-      padding: 20px;
-      background-color: var(--secondary-color);
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
-    h1 {
-      font-family: var(--heading-font);
-      font-size: var(--h1-size);
-      color: var(--primary-color);
-      margin-bottom: 5px;
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: var(--margin);
     }
 
     h2 {
-      font-family: var(--heading-font);
-      font-size: var(--h2-size);
-      color: #333;
-      margin-top: 0;
-    }
-
-    nav {
-      margin-bottom: 20px;
-    }
-
-    .menu-button {
-      display: block;
-      padding: 10px 15px;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    .nav-list {
-      display: none;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .nav-list li {
-      margin-bottom: 10px;
-    }
-
-    .nav-list li a {
-      text-decoration: none;
       color: var(--primary-color);
     }
 
-    .image-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .profile-img {
-      width: 100%;
-      max-width: 250px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    section p {
+    p {
       line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 100%;
-      gap: 10px;
     }
 
-    input, textarea, button {
-      padding: 10px;
-      border: 1px solid #ccc;
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--secondary-color);
+      color: white;
+      text-decoration: none;
       border-radius: 5px;
-      font-size: 1rem;
+      margin-top: 1rem;
     }
 
-    button {
+    footer {
       background-color: var(--primary-color);
       color: white;
-      cursor: pointer;
-    }
-
-    /* Media queries for larger screens */
-    @media (min-width: 768px) {
-      .menu-button { display: none; }
-      .nav-list {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .nav-list li {
-        margin-bottom: 0;
-      }
-
-      .form-section {
-        display: grid;
-        grid-template-columns: 1fr minmax(300px, 700px) 1fr; /* Adjust min/max as needed */
-        align-items: center;
-        width: 100%;
-      }
-
-      .form-container {
-        grid-column: 2; /* Center column */
-      }
-
-      input[name="name-input"] { grid-area: name; }
-      input[name="email-input"] { grid-area: email; }
-      input[name="text-input"] { grid-area: text; }
-      input[name="submit-button"] { grid-area: submit; }
+      text-align: center;
+      padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <nav>
-    <button class="menu-button">Menu</button>
-    <ul class="nav-list">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
 
   <header>
-    <h1>Jane Doe</h1>
-    <h2>Web Developer & Designer</h2>
+    <h1>Mountain Hiking Adventures</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Trails</a>
+      <a href="#">Gear</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 
-  <section>
-    <picture class="image-container">
-      <source srcset="https://upload.wikimedia.org/wikipedia/commons/1/1f/Woman_1.jpg" media="(min-width: 768px)">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Woman_1.jpg/250px-Woman_1.jpg" alt="Profile Image" class="profile-img">
-    </picture>
-  </section>
+  <main>
+    <section>
+      <h2>Explore the Mountains</h2>
+      <p>Discover breathtaking trails, enjoy nature, and challenge yourself with our curated hiking routes. Whether you're a beginner or an expert, there is a path for everyone. <span class="highlight">Adventure awaits!</span></p>
+      <a href="#" class="button">Learn More</a>
+    </section>
 
-  <section>
-    <p>Welcome to my profile! I specialize in creating mobile-first, responsive websites that look great on any device. My focus is on performance, accessibility, and clean design.</p>
-  </section>
+    <section>
+      <h2>Essential Gear</h2>
+      <p>Prepare for your hikes with the right gear. From backpacks to boots, we provide tips on choosing items that will keep you safe and comfortable. <span class="highlight">Stay prepared!</span></p>
+      <a href="#" class="button">Shop Gear</a>
+    </section>
 
-  <section class="form-section">
-    <div></div>
-    <form class="form-container">
-      <input type="text" name="name-input" placeholder="Your Name">
-      <input type="email" name="email-input" placeholder="Your Email">
-      <textarea placeholder="Your Message" name="text-input"></textarea>
-      <button type="submit" name="submit-button">Send Message</button>
-    </form>
-    <div></div>
-  </section>
+    <section>
+      <h2>Join Our Community</h2>
+      <p>Connect with fellow hikers, share your experiences, and participate in group hikes. Our community is welcoming and supportive for all skill levels. <span class="highlight">Join us today!</span></p>
+      <a href="#" class="button">Sign Up</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Mountain Hiking Adventures. All rights reserved.
+  </footer>
+
 </body>
 </html>

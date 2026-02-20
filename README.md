@@ -1513,3 +1513,158 @@ Using the `rem` unit in CSS for mobile styling is highly recommended primarily f
 ##### Result:
 
 ![Recap - Mobile-first Strategy](Assets/Videos/NVIDIA_Overlay_7GFPFUl1pV.gif)
+
+## Theming & Visual Styles:
+
+### Theming in CSS:
+
+**Theming in CSS** means creating a consistent look for  website by using reusable colors, fonts, and styles. Instead of repeating the same code everywhere, you define your theme once (for example, setting a main color and accent color) and apply it across the whole website. This makes the design feel professional and unified.
+
+#### Basic Syntax:
+
+The most common approach is using **CSS variables** to define them values:
+
+```css
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #f5a623;
+  --font-family: 'Arial, sans-serif';
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--primary-color);
+}
+
+button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+```
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Theming in CSS</title>
+  <style>
+    /* Theming with CSS Variables */
+    :root {
+      --primary-color: purple;
+      --secondary-color: violet;
+      --bg-color: #f0c4f8;
+      --text-color: #333333;
+      --font-family: 'Arial, sans-serif';
+      --margin: 1rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: var(--margin);
+    }
+
+    h2 {
+      color: var(--primary-color);
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: var(--secondary-color);
+      font-weight: bold;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--secondary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mountain Hiking Adventures</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Trails</a>
+      <a href="#">Gear</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Explore the Mountains</h2>
+      <p>Discover breathtaking trails, enjoy nature, and challenge yourself with our curated hiking routes. Whether you're a beginner or an expert, there is a path for everyone. <span class="highlight">Adventure awaits!</span></p>
+      <a href="#" class="button">Learn More</a>
+    </section>
+
+    <section>
+      <h2>Essential Gear</h2>
+      <p>Prepare for your hikes with the right gear. From backpacks to boots, we provide tips on choosing items that will keep you safe and comfortable. <span class="highlight">Stay prepared!</span></p>
+      <a href="#" class="button">Shop Gear</a>
+    </section>
+
+    <section>
+      <h2>Join Our Community</h2>
+      <p>Connect with fellow hikers, share your experiences, and participate in group hikes. Our community is welcoming and supportive for all skill levels. <span class="highlight">Join us today!</span></p>
+      <a href="#" class="button">Sign Up</a>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Mountain Hiking Adventures. All rights reserved.
+  </footer>
+
+</body>
+</html>
+```
+
+##### Result:
+
+![Theming in CSS](Assets/Photos/theming%20in%20CSS.jpg)
