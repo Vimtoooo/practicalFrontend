@@ -1986,3 +1986,123 @@ And highlight active navigation items using the accent color:
 ##### Result:
 
 ![Accent Colors & Highlighting](Assets/Photos/Accent%20colors%20&%20highlighting.jpg)
+
+### Typography Theming:
+
+Typography is an important part of theming and design. Instead of writing font styles everywhere, we can define them as **CSS variables** and reuse them across the site. This keeps the style consistent and makes it easier to change later.
+
+#### How Typography Works:
+
+You can define variables for:
+
+* **Font family** (e.g., `--font-family-base`, `--font-family-heading`)
+* **Font sizes** (e.g., `font-size-base`, `--font-size-h1`)
+* **Line height**
+* **Letter spacing**
+
+#### Basic Syntax:
+
+First, let's define our typography variables in the `:root` element:
+
+```css
+:root {
+  --font-primary: 'Open Sans', sans-serif;
+  --font-secondary: 'Roboto', sans-serif;
+  --font-size-base: 16px;
+  --line-height: 1.5;
+  --heading-color: #333;
+  --text-color: #555;
+}
+```
+
+Now, apply these variables to your text elements:
+
+```css
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  color: var(--heading-color);
+}
+```
+
+This setup creates a unified typography system that you can easily modify by changing the variable values in one place.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Typography Theming</title>
+  <style>
+    :root {
+      /* Typography variables */
+      --primary-font: "Georgia", serif;       /* for paragraphs */
+      --secondary-font: "Arial", sans-serif; /* for headings */
+      --h1-size: 24px;
+      --h2-size: 18px;
+      --text-color: rgb(1, 1, 1);
+      --heading-color: purple;
+    }
+
+    body {
+      font-family: var(--primary-font);
+      color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    h1, h2 {
+      font-family: var(--secondary-font);
+      color: var(--heading-color);
+      margin-bottom: 0.5em;
+    }
+
+    h1 {
+      font-size: var(--h1-size);
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+    }
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    .blog-post {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-post">
+    <h1>The Beauty of Typography in Web Design</h1>
+    <p>Typography plays a crucial role in how users read and experience content online. A good choice of fonts and sizes can make a website more readable and enjoyable.</p>
+
+    <h2>Why Typography Matters</h2>
+    <p>Clear and consistent typography improves accessibility, creates a visual hierarchy, and gives your website a professional feel. Without it, even the best design can look unpolished.</p>
+
+    <h2>Mobile-First Typography</h2>
+    <p>Starting with smaller, readable text for mobile and scaling up for desktops ensures your content looks great on any device. This approach is part of mobile-first design and theming.</p>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Typography Theming](Assets/Photos/Typography%20Theming.jpg)

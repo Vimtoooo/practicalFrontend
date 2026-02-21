@@ -1,120 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Accent Colors & Highlighting</title>
+  <title>Typography Theming</title>
   <style>
     :root {
-      --primary-color: #1e90ff;
-      --text-color: #222;
-      --bg-color: #f9f9f9;
-      --accent-color: rgb(100, 250, 10);
+      /* Typography variables */
+      --primary-font: "Georgia", serif;       /* for paragraphs */
+      --secondary-font: "Arial", sans-serif; /* for headings */
+      --h1-size: 24px;
+      --h2-size: 18px;
+      --text-color: rgb(1, 1, 1);
+      --heading-color: purple;
     }
 
     body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: var(--bg-color);
+      font-family: var(--primary-font);
       color: var(--text-color);
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
     }
 
-    header {
-      background-color: var(--primary-color);
-      color: white;
-      padding: 1rem;
-      text-align: center;
+    h1, h2 {
+      font-family: var(--secondary-font);
+      color: var(--heading-color);
+      margin-bottom: 0.5em;
     }
 
-    main {
+    h1 {
+      font-size: var(--h1-size);
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+    }
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    .blog-post {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #fff;
       padding: 2rem;
-      display: grid;
-      gap: 1.5rem;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .card {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card h2 {
-      margin-top: 0;
-      color: var(--primary-color);
-    }
-
-    .card button {
-      color: white;
-      background-color: var(--accent-color);
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    a:hover {
-      /* background-color: var(--accent-color); */
-      text-decoration: underline;
-    }
-
-    .card button:hover { background-color: var(--primary-color); }
-
-    .highlight {
-      color: var(--accent-color);
-      padding: 0 4px;
-      border-radius: 3px;
-    }
-
-    footer {
-      background-color: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-
-    footer a {
-      margin: 0 0.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Summer Music Festival</h1>
-    <p>Experience <span class="highlight">unforgettable</span> music and vibes all summer long!</p>
-  </header>
+  <div class="blog-post">
+    <h1>The Beauty of Typography in Web Design</h1>
+    <p>Typography plays a crucial role in how users read and experience content online. A good choice of fonts and sizes can make a website more readable and enjoyable.</p>
 
-  <main>
-    <div class="card">
-      <h2>Rock Stage</h2>
-      <p>Join the rock legends for an unforgettable night of music! <a href="#">More info</a></p>
-      <button>Learn More</button>
-    </div>
+    <h2>Why Typography Matters</h2>
+    <p>Clear and consistent typography improves accessibility, creates a visual hierarchy, and gives your website a professional feel. Without it, even the best design can look unpolished.</p>
 
-    <div class="card">
-      <h2>Jazz Stage</h2>
-      <p>Relax with smooth jazz performances under the open sky. <a href="#">Schedule</a></p>
-      <button>Learn More</button>
-    </div>
-
-    <div class="card">
-      <h2>EDM Stage</h2>
-      <p>Dance all night with top DJs spinning the hottest tracks. <a href="#">Lineup</a></p>
-      <button>Learn More</button>
-    </div>
-  </main>
-
-  <footer>
-    <p>Follow us on <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Twitter</a></p>
-  </footer>
+    <h2>Mobile-First Typography</h2>
+    <p>Starting with smaller, readable text for mobile and scaling up for desktops ensures your content looks great on any device. This approach is part of mobile-first design and theming.</p>
+  </div>
 </body>
 </html>
