@@ -1518,7 +1518,7 @@ Using the `rem` unit in CSS for mobile styling is highly recommended primarily f
 
 ### Theming in CSS:
 
-**Theming in CSS** means creating a consistent look for  website by using reusable colors, fonts, and styles. Instead of repeating the same code everywhere, you define your theme once (for example, setting a main color and accent color) and apply it across the whole website. This makes the design feel professional and unified.
+**Theming in CSS** means creating a consistent look for website by using reusable colors, fonts, and styles. Instead of repeating the same code everywhere, you define your theme once (for example, setting a main color and accent color) and apply it across the whole website. This makes the design feel professional and unified.
 
 #### Basic Syntax:
 
@@ -1828,7 +1828,7 @@ However, to switch modes dynamically, we ned a bit of help from another language
 
 ### Accent Colors & Highlighting:
 
-Accent colors help important elements stand out, such as buttons, links, call-to-action sections, or highlighted text. You can define them ass CSS variables (for example: `--primary-color` `--accent-color`, `--highlight-color`) and use them consistently throughout your site. Hover states and highlights can also use these variables, making it easy to create a visually appealing and cohesive theme while drawing attention to key content.
+Accent colors help important elements stand out, such as buttons, links, call-to-action sections, or highlighted text. You can define them as CSS variables (for example: `--primary-color` `--accent-color`, `--highlight-color`) and use them consistently throughout your site. Hover states and highlights can also use these variables, making it easy to create a visually appealing and cohesive theme while drawing attention to key content.
 
 #### Basic Syntax:
 
@@ -2106,3 +2106,158 @@ This setup creates a unified typography system that you can easily modify by cha
 ##### Result:
 
 ![Typography Theming](Assets/Photos/Typography%20Theming.jpg)
+
+### Recap - Theming & Visuals:
+
+* **Theming in CSS**: The strategy of creating a consistent look for website by using reusable colors, fonts, and styles. Instead of repeating the same code everywhere, you define your theme once. This can be applied with the use of a `:root` global selector with various variables.
+* **Dark/Light Mode**: A popular feature that allows users to choose their preferred color scheme. Where in the `<body>` tag, you would assign the class value of "dark-mode" (but the actual styles would not be applied yet), so that whenever the user selects the option to apply this style class, the JavaScript would do so, overriding the default variable values to the ones in the `.dark-mode` selector class.
+* **Accent Colors & Highlighting**: Accent colors help important elements stand out, such as buttons, links, call-to-action sections, or highlighted text. You can define them as CSS variables (for example: `--primary-color` `--accent-color`, `--highlight-color`) and use them consistently throughout your site.
+* **Typography Theming**: Typography is an important part of theming and design. Instead of writing font styles everywhere, we can define them as **CSS variables** and reuse them across the site. This keeps the style consistent and makes it easier to change later.
+
+#### Example of a Website:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recap Challenge on Theming & Visuals</title>
+  <style>
+    /*  Theme variables */
+    :root {
+      --primary-color: rgb(22, 50, 90);
+      --secondary-color: rgb(42, 110, 190);
+      --text-color: #333333;
+      --heading-color: #1a3a6d;
+      --accent-color: rgb(249, 168, 37);
+
+      --primary-font: "Georgia", serif;
+      --secondary-font: "Arial", sans-serif;
+      --h1-size: 40px;
+      --h2-size: 28px;
+    }
+
+    .dark-mode {
+      --primary-color: rgb(22, 50, 100);
+      --secondary-color: rgb(42, 110, 100);
+      --text-color: lightblue;
+      --heading-color: blue;
+    }
+
+    body {
+      font-family: var(--primary-font);
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: var(--primary-color);
+    }
+
+    h1 {
+      font-size: var(--h1-size);
+      font-family: var(--secondary-font);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+      font-family: var(--secondary-font);
+      color: var(--heading-color);
+    }
+
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    button {
+      background-color: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #c17900;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: white;
+      background-color: var(--primary-color);
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent-color);
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Financial Freedom</h1>
+    <p>Smart habits for building wealth and living on your own terms.</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Financial Freedom?</h2>
+      <p>Financial freedom means having enough savings, investments, and cash on hand to afford the lifestyle you want, without worrying about money day-to-day.</p>
+    </section>
+
+    <section>
+      <h2>Timeless Investing Advice</h2>
+      <ul>
+        <li>Start early — the power of compounding works best with time.</li>
+        <li>Live below your means and save consistently.</li>
+        <li>Diversify your investments to reduce risk.</li>
+        <li>Stay patient — avoid emotional decisions during market ups and downs.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Money Mindset</h2>
+      <p>Money is less about numbers and more about behavior. Your mindset and habits matter more than chasing the highest returns.</p>
+      <button>Learn More</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>More resources on <a href="#">Investing & Financial Freedom</a></p>
+  </footer>
+</body>
+</html>
+```
+
+##### Result:
+
+![Recap - Theming & Visuals](Assets/Videos/chrome_mc8A19udWc.gif)
