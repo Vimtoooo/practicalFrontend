@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Extreme Sports Adventures</title>
-  <style>
-  /* === Variables === */
+<style>
+  /* === Variables for Theming === */
   :root {
-    --primary-color: #f0c905;
-    --secondary-color: #ff007b;
-    --bg-color: #e8e8e8;
-    --text-color: #1f1d1c;
-    --card-bg: #e0e0e0;
+    --primary-color: #ff4d4f;
+    --secondary-color: #333;
+    --bg-color: #f7f7f7;
+    --text-color: #222;
+    --card-bg: #ffffff;
+    --accent-color: #1e90ff;
+    --heading-font: 'Arial', sans-serif;
+    --body-font: 'Verdana', sans-serif;
   }
 
   body {
+    margin: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    margin: 0;
+    font-family: var(--body-font);
     line-height: 1.6;
   }
 
   header {
-    background-color: var(--primary-color);
     text-align: center;
     padding: 2rem 1rem;
+    background-color: var(--primary-color);
+    color: #fff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   }
 
   header h1 {
+    font-family: var(--heading-font);
     font-size: 2.2rem;
     margin-bottom: 0.5rem;
   }
@@ -67,6 +71,8 @@
   }
 
   .description h2, .facts h2 {
+    font-family: var(--heading-font);
+    color: var(--accent-color);
     margin-top: 0;
   }
 
@@ -75,7 +81,7 @@
     margin-top: 1rem;
     padding: 10px 20px;
     color: #fff;
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     text-decoration: none;
     font-weight: bold;
     border-radius: 8px;
@@ -83,15 +89,13 @@
   }
 
   .btn:hover {
+    background-color: var(--primary-color);
     transform: scale(1.05);
   }
 
   ul {
     padding-left: 20px;
   }
-
-  h1 { color: var(--secondary-color); }
-  h2 { color: var(--secondary-color); }
 </style>
 </head>
 <body>
@@ -102,9 +106,9 @@
 
 <main>
   <section class="hero">
-    <picture>
-      <source media="(min-width: 768px)" srcset="https://upload.wikimedia.org/wikipedia/commons/3/32/Parachuting_sport.jpg" alt="skydiving">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Parachuting_sport.jpg/960px-Parachuting_sport.jpg" alt="skydiving">
+     <picture>
+      <source media="(min-width: 768px)" srcset="https://upload.wikimedia.org/wikipedia/commons/3/32/Parachuting_sport.jpg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Parachuting_sport.jpg/960px-Parachuting_sport.jpg" alt="Skydiving">
     </picture>
   </section>
 
