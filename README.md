@@ -2398,3 +2398,166 @@ body {
 ##### Result:
 
 ![Dropdown Menu](Assets/Videos/chrome_4liCsmPjZh.gif)
+
+### Tabs:
+
+Tabs are a way to organize content into separate sections while keeping everything on one page. Instead of scrolling a long page, users can switch between content panels by clicking on a tab. You often see tabs in settings pages, dashboards, or product descriptions (e.g., <i>Details, Reviews, FAQ</i>).
+
+We can create tabs without JavaScript using:
+
+* Radio buttons (so only one tab can be active at a time)
+* Labels that act as clickable tab buttons
+* CSS selectors (`:checked`) to show the right content
+
+#### Basic Syntax:
+
+Withe the HTML structure:
+
+```html
+<div class="tabs">
+  <input type="radio" id="tab1" name="tab">
+  <label for="tab1">Tab 1</label>
+  <div id="content1" class="tab-content">This is the content of Tab 1.</div>
+    
+  <input type="radio" id="tab2" name="tab">
+  <label for="tab2">Tab 2</label>
+  <div id="content2" class="tab-content">This is the content of Tab 2.</div>
+    
+  <input type="radio" id="tab3" name="tab">
+  <label for="tab3">Tab 3</label>
+  <div id="content3" class="tab-content">This is the content of Tab 3.</div>
+</div>
+```
+
+Then implemented with CSS:
+
+```css
+/* Hide radios */
+input { display: none; }
+
+/* Tab labels */
+label {
+  padding: 5px 10px;
+  background: lightgray;
+  cursor: pointer;
+}
+
+/* Content hidden by default */
+.tab-content { display: none; padding: 10px; border: 1px solid #ccc; }
+
+/* Show content when radio is checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+  display: block;
+}
+
+/* Highlight active tab */
+#tab1:checked + label,
+#tab2:checked + label,
+#tab3:checked + label {
+  background: steelblue;
+  color: white;
+}
+```
+
+![Basic Display](Assets/Videos/chrome_jDv93vSjrD.gif)
+
+#### How are the Selectors being Used?
+
+Here is a reminder about the selector symbols:
+
+* `+` (adjacent sibling) -> selects the immediately next element
+* `~` (general sibling) -> selects any following sibling (not just the next one)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+    }
+
+    /* Hide the radio inputs */
+    .tabs input {
+      display: none;
+    }
+
+    /* Tab labels */
+    .tabs label {
+      padding: 10px;
+      background: #eee;
+      cursor: pointer;
+      border: 1px solid #ccc;
+    }
+
+    .tabs label:hover {
+      background: #ddd;
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    /* Show content when radio is checked */
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+
+    /* Highlight active tab */
+    #tab1:checked + label,
+    #tab2:checked + label,
+    #tab3:checked + label {
+      background: #4cafef;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab" checked>
+    <label for="tab1">Nutrition</label>
+    <div id="content1" class="tab-content">
+      <h3>Nutrition</h3>
+      <p>A balanced diet fuels your body and mind. Focus on fruits, vegetables, whole grains, and lean proteins. Avoid too much processed food.</p>
+    </div>
+
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">Exercise</label>
+    <div id="content2" class="tab-content">
+      <h3>Exercise</h3>
+      <p>Daily movement strengthens your body and reduces health risks. Even a 30-minute walk or stretching makes a difference.</p>
+    </div>
+
+    <input type="radio" id="tab3" name="tab">
+    <label for="tab3">Sleep</label>
+    <div id="content3" class="tab-content">
+      <h3>Sleep</h3>
+      <p>Good sleep helps recovery and focus. Aim for 7 to 9 hours per night and keep a regular schedule.</p>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Tabs](Assets/Videos/chrome_YHlkdl4w1s.gif)

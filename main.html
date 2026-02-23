@@ -3,18 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
   <title>Document</title>
+  <style>
+    /* Hide radios */
+    input { display: none; }
+
+    /* Tab labels */
+    label {
+      padding: 5px 10px;
+      background: lightgray;
+      cursor: pointer;
+    }
+
+    /* Content hidden by default */
+    .tab-content { display: none; padding: 10px; border: 1px solid #ccc; }
+
+    /* Show content when radio is checked */
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2,
+    #tab3:checked ~ #content3 {
+      display: block;
+    }
+
+    /* Highlight active tab */
+    #tab1:checked + label,
+    #tab2:checked + label,
+    #tab3:checked + label {
+      background: steelblue;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div class="dropdown">
-    <button type="button" class="dropdown-button">Select Subject</button>
-    <div class="dropdown-content">
-      <a href="#">English</a>
-      <a href="#">Science</a>
-      <a href="#">Mathematics</a>
-      <a href="#">Physical Education</a>
-    </div>
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab">
+    <label for="tab1">Tab 1</label>
+    <div id="content1" class="tab-content">This is the content of Tab 1.</div>
+    
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">Tab 2</label>
+    <div id="content2" class="tab-content">This is the content of Tab 2.</div>
+    
+    <input type="radio" id="tab3" name="tab">
+    <label for="tab3">Tab 3</label>
+    <div id="content3" class="tab-content">This is the content of Tab 3.</div>
   </div>
 </body>
 </html>
