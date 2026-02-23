@@ -2261,3 +2261,140 @@ This setup creates a unified typography system that you can easily modify by cha
 ##### Result:
 
 ![Recap - Theming & Visuals](Assets/Videos/chrome_mc8A19udWc.gif)
+
+## UI Components:
+
+### Dropdown Menu:
+
+A dropdown menu is a navigation item that shows more links when the user hovers over or focuses on it. While dropdowns can be built using JavaScript, in this chapter we focus on a **CSS-only approach**, which manipulates with the `:hover` or `:focus-within` interactive pseudo-classes to reveal the hidden menu.
+
+#### Basic Syntax:
+
+With the following HTML document:
+
+```html
+<div class="dropdown">
+  <button class="dropdown-button">Menu</button>
+  <div class="dropdown-content">
+    <a href="#">Option 1</a>
+    <a href="#">Option 2</a>
+    <a href="#">Option 3</a>
+  </div>
+</div>
+```
+
+We will implement the functionality with pure CSS:
+
+```css
+/* The .dropdown is position: relative
+So the dropdown content can be positioned correctly with position: absolute. */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* The .dropdown-content is hidden by default using display: none. */
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+/* When the user hovers over the .dropdown container, the .dropdown-content is shown using display: block. */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+```
+
+When you hover over the dropdown container (including the button), the dropdown content will appear.
+
+#### Why use Dropdown Menus?
+
+* Saves space in navigation bars
+* Keeps the interface clean and organized
+* Works well for mobile-first and responsive designs when adapted properly
+
+#### Example of Usage:
+
+This is the HTML structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="dropdown">
+    <button type="button" class="dropdown-button">Select Subject</button>
+    <div class="dropdown-content">
+      <a href="#">English</a>
+      <a href="#">Science</a>
+      <a href="#">Mathematics</a>
+      <a href="#">Physical Education</a>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+These are the styles applied:
+
+```css
+body {
+    font-family:'Times New Roman', Times, serif;
+    background-color: rgb(224, 224, 224);
+    padding: 50px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    left: 100px;
+    top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-button {
+    padding: 10px 30px;
+    font-size: 15px;
+    font-weight: 300;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 160px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-content a:hover{ background-color: #f2f2f2; }
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+```
+
+##### Result:
+
+![Dropdown Menu](Assets/Videos/chrome_4liCsmPjZh.gif)
