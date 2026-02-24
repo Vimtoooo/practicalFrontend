@@ -2675,3 +2675,103 @@ With this, the badge sits at the top right corner of the button showing the umbe
 ##### Result:
 
 ![Badges](Assets/Photos/badges.jpg)
+
+### Tooltips:
+
+Tooltips are small, informative pop-up elements that appear when a user <i>hovers over or focuses on an interface element</i>. They provide additional contenxt ithout cluttering the main UI.
+
+#### Basic Syntax:
+
+Let's create a basic tooltip using HTML and CSS, and the first step is to define the HTML structure as always...
+
+```html
+<div class="tooltip-container">
+  <button>Hover over me</button>
+  <span class="tooltip">This is a tooltip!</span>
+</div>
+```
+
+Then we add the CSS to position and show/hide the tooltip.
+
+```css
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  margin: 25vh 40vw;
+}
+.tooltip {
+  visibility: hidden;
+  /* Position the tooltip */
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: visible;
+  text-align: center;
+  font-weight: 900;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  /* Add a slight delay before showing */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+/* Show the tooltip when hovering over the container */
+.tooltip-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+```
+
+With this implementation, as you hover over the button, a tooltip will appear above it!
+
+![tooltip demonstration](Assets/Videos/chrome_RJWxagcFRa.gif)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tooltips</title>
+  <style>
+    .tooltip-container {
+      position: relative;
+      display: inline-block;
+      margin: 50px;
+    }
+    
+    button {
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    
+    .tooltip {
+      visibility: hidden;
+      background-color: magenta;
+      color: white;
+      text-align: center;
+      padding: 6px 4px;
+      border-radius: 15px;
+      /* Animation properties */
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    /* Show the tooltip when hovering over the container */
+    .tooltip-container:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="tooltip-container">
+    <button>Help</button>
+    <span class="tooltip">Click for assistance</span>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Tooltips](Assets/Videos/chrome_yeoRAC6GMd.gif)
