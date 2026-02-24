@@ -2561,3 +2561,117 @@ Here is a reminder about the selector symbols:
 ##### Result:
 
 ![Tabs](Assets/Videos/chrome_YHlkdl4w1s.gif)
+
+### Badges:
+
+Badges are **tiny indicators** used to show counts or status next to another element. For example: a **red circle with a number** showing unread messages. They are often attached to **buttons, icons, or profile pictures**.
+
+#### Basic Syntax:
+
+Let us create a simple badge, where we will create a basic HTML element to hold your badge:
+
+```html
+<button class="btn">
+  Messages <span class="badge">5</span>
+</button>
+```
+
+Next, implement some basic CSS to style the badge:
+
+```css
+.btn {
+  position: relative;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+```
+
+With this, the badge sits at the top right corner of the button showing the umber of messages.
+
+![Badge Demonstration](Assets/Photos/badge%20demostration.jpg)
+
+#### Why Badges Matter?
+
+* They make important info (like notifications) **quickly visible** and **stand out**
+* Commonly used in **apps, social media, and e-commence websites**
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Badges</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f5f5f5;
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      position: relative; /* needed for badge positioning */
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4cafef;
+      color: white;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #3a92d8;
+    }
+
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -9px;
+      background-color: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 100%;
+      padding: 4px 7px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="button">
+    Messages
+    <span class="badge">5</span>
+  </button>
+
+  <button class="button">
+    Notifications
+    <span class="badge">!</span>
+  </button>
+
+  <button class="button">
+    Cart
+    <span class="badge">3</span>
+  </button>
+
+</body>
+</html>
+```
+
+##### Result:
+
+![Badges](Assets/Photos/badges.jpg)
