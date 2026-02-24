@@ -2775,3 +2775,84 @@ With this implementation, as you hover over the button, a tooltip will appear ab
 ##### Result:
 
 ![Tooltips](Assets/Videos/chrome_yeoRAC6GMd.gif)
+
+### Notification Banners:
+
+Notification banners alert users about important information like success messages, warnings, or errors. They typically appear at the top or bottom of a page. You've probably seen them used for things such as:
+
+- **Success Messages** - E.g., "Your profile was updated successfully."
+- **Error Messages** - E.g., "Something wen wrong, please try again."
+- **Info alerts** - E.g., "We've updated our privacy policy."
+
+#### Basic Syntax:
+
+To begin constructing a notification banner, we start with a basic `<div>` container as usual.
+
+```html
+<div class="notification">
+  This is a notification message!
+</div>
+```
+
+Then we add some styling to make it stand out:
+
+```css
+.notification {
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+```
+
+This would create a green notification banner with white text.
+
+![Notification banner demonstration](Assets/Photos/Notification%20banner%20demonstration.jpg)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notification Banners</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    
+    .notification {
+      display: flex;
+      align-items: center;
+      padding: 20px 28px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .notification_icon {
+      margin-right: 18px;
+      font-size: 18px;
+    }
+
+    .notification_message {
+      font-family: 'Seguoe UI';
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="notification notification--success">
+    <span class="notification_icon">✓</span>
+    <div class="notification_message">Your changes have been saved successfully!</div>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Notification Banners](Assets/Photos/Notification%20Banners.jpg)
