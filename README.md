@@ -3097,3 +3097,231 @@ Here is the recap for UI components:
 ##### Result:
 
 ![Recap - UI Components](Assets/Videos/chrome_22xOZHWukn.gif)
+
+## Responsive Designs:
+
+### Holy Grail Layout:
+
+The **Holy Grail Layout** is a classic web design pattern with a header at the top, a footer at the bottom and three columns in the middle.
+
+* Left sidebar (navigation or links)
+* Main content (center)
+* Right sidebar (extra info, ads or widgets)
+
+#### Why is it called "Holy Grail"?
+
+The reason behind its name is because it keeps the main content in the center and is very common in blogs, news sites and dashboards.
+
+#### How it Works:
+
+- Built with CSS Flexbox or Grid display
+- The main content grows to fill the space, while sidebars have fixed or smaller widths
+- On small screens, sidebars stack above or below the main content for better readability
+
+#### Basic Syntax:
+
+Here is an example with the usage of a CSS Grid (simplified):
+
+##### HTML
+
+```html
+<div class="container">
+  <header>Header</header>
+  <nav>Navigation</nav>
+  <main>Main Content</main>
+  <aside>Sidebar</aside>
+  <footer>Footer</footer>
+</div>
+```
+
+##### CSS
+
+```css
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav main aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+}
+header { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+aside { grid-area: aside; }
+footer { grid-area: footer; }
+```
+
+##### Basic Illustration:
+
+The Holy Grail will pursue the following structure.
+
+![Holy Grail Illustration](Assets/Photos/Holy%20Grail%20Illustration.jpg)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Holy Grail Layout</title>
+  <style>
+    :root {
+      --main-color: rgb(76, 175, 239); /* header/footer */
+      --accent-color: #ff9800; /* highlights */
+      --text-color: #333;
+      --heading-color: #222;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #a9eef3;
+      color: var(--text-color);
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+      grid-template-columns: 160px 1fr 180px;
+      min-height: 100vh;
+      gap: 1rem;
+    }
+
+    header, footer { text-align: center; }
+
+    header {
+      background-color: var(--main-color);
+      color: white;
+      padding: 1.5rem;
+      grid-area: header;
+    }
+
+    footer {
+      background-color: var(--main-color);
+      color: white;
+      padding: 1rem;
+      grid-area: footer;
+    }
+
+    nav {
+      background: #f4f4f4;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      grid-area: nav;
+      margin-left: 10px;
+    }
+
+    nav h3 {
+      margin-top: 0;
+      color: var(--heading-color);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0.5rem 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    nav a:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+
+    main {
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      grid-area: main;
+    }
+
+    main h2 {
+      margin-top: 0;
+      color: var(--heading-color);
+    }
+
+    aside {
+      background: #fff7e6;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      grid-area: aside;
+      margin-right: 10px;
+    }
+
+    aside h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    aside li {
+      position: relative;
+      right: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Travel Adventures</h1>
+      <p>Explore the world, one journey at a time</p>
+    </header>
+
+    <nav>
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Travel Tips</a></li>
+        <li><a href="#">Photo Gallery</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Featured Destination: Japan</h2>
+      <p>
+        Japan is a country where ancient traditions meet modern innovation. 
+        From the serene temples of Kyoto to the bustling streets of Tokyo, 
+        there’s something for every traveler.
+      </p>
+      <p>
+        Don’t forget to try sushi, explore cherry blossoms in spring, 
+        and relax in an onsen hot spring bath.
+      </p>
+    </main>
+
+    <aside>
+      <h3>Quick Facts</h3>
+      <ul>
+        <li>Capital: Tokyo</li>
+        <li>Language: Japanese</li>
+        <li>Currency: Yen</li>
+      </ul>
+    </aside>
+
+    <footer>
+      <p>&copy; 2025 Travel Adventures Blog</p>
+    </footer>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Holy Grail Layout](Assets/Photos/Holy%20Grail.jpg)
