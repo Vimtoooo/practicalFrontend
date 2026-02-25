@@ -2678,7 +2678,7 @@ With this, the badge sits at the top right corner of the button showing the umbe
 
 ### Tooltips:
 
-Tooltips are small, informative pop-up elements that appear when a user <i>hovers over or focuses on an interface element</i>. They provide additional contenxt ithout cluttering the main UI.
+Tooltips are small, informative pop-up elements that appear when a user <i>hovers over or focuses on an interface element</i>. They provide additional context without cluttering the main UI.
 
 #### Basic Syntax:
 
@@ -2856,3 +2856,244 @@ This would create a green notification banner with white text.
 ##### Result:
 
 ![Notification Banners](Assets/Photos/Notification%20Banners.jpg)
+
+### Recap - UI Components:
+
+Here is the recap for UI components:
+
+* **Dropdown Menus**: A menu or navigation element what exhibits the main navigational content, and while the user hovers or interacts with it, the dropdown is activated, showing more options of the selected section. These can be done with the manipulation of `:hover` or `:focus-within` interactive pseudo-classes to reveal the hidden menu.
+* **Tabs**: A technique to organize content into separate sections, unlike dropdown menus, when you select a tab, the contents of that particular option is exhibited into the user interface, while keeping everything on one page. Instead of scrolling a long page, users can switch between content panels by clicking on a tab. This can be achieved with the `:checked` pseudo-class.
+* **Badges**: They are **tiny indicators** used to show counts or status next to another element. For example: a **red circle with a number** showing unread messages. They are often attached to **buttons, icons, or profile pictures**. They can be moved around with the `absolute` value of the `position` property, then adjusting its coordinates with `left`, `right`, `top` and `bottom` properties.
+* **Tooltips**: Small-scale, informative, pop-up elements that when a specific button or interface element is hovered or interacted with, the tooltip will appear above or near the interacted element. It is essential to define a `<span>` tag within the same container as the interface element, then using the `.container:hover span` to target the `<span>` tag specifically when the `.container` is being hovered on.
+* **Notification Banners**: Pop-up, rectangular messages that alert the user about any errors, successes or updates. They typically appear at the top or the bottom of webpages.
+
+#### Example of a Webpage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recap Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Notification Banner */
+    .notification {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      font-size: 16px;
+      background-color: rgb(76, 175, 80);
+      color: white;
+    }
+
+    /* Profile Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-button {
+      padding: 8px 14px;
+      background: #eee;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 32px;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 4px;
+      margin-top: 5px;
+      min-width: 150px;
+      z-index: 10;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown-content a:hover {
+      background: #f2f2f2;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    /* Tabs */
+    .tabs {
+      margin: 20px;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tabs input { display: none; }
+
+    .tabs label {
+      padding: 10px 20px;
+      cursor: pointer;
+      background: #eee;
+      border: 1px solid #ccc;
+      margin-right: 5px;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .tabs label:hover {
+      background: #ddd;
+    }
+
+    .tab-content {
+      display: none;
+      border: 1px solid #ccc;
+      border-top: none;
+      padding: 15px;
+      background: white;
+    }
+
+    #tab1:checked ~ #content1,
+    #tab2:checked ~ #content2 {
+      display: block;
+    }
+
+    #tab1:checked + label,
+    #tab2:checked + label {
+      background: #4CAF50;
+      color: white;
+    }
+
+    /* Badge */
+    .icon {
+      position: relative;
+      font-size: 22px;
+      margin-right: 15px;
+    }
+
+    .badge {
+      position: absolute;
+      top: -10px;
+      right: -6px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 4px 7px;
+      border-radius: 50%;
+    }
+
+    /* Tooltip */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .tooltip .tooltip-text {
+      visibility: hidden;
+      display: flex;
+      width: 160px;
+      color: #333;
+      text-align: center;
+      position: absolute;
+      left: 110%;
+      top: 50%;
+      transform: translateY(-50%);
+      white-space: nowrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      background-color: yellow;
+      padding: 7px 50px 7px 50px;
+      margin: -3px 0px 0px 0px;
+      justify-content: center;
+      border-radius: 15px;
+    }
+
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notification Banner -->
+  <div class="notification">
+    ✓ Profile updated successfully!
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>My Profile</h1>
+    <div>
+      <span class="icon">✉ <span class="badge">3</span></span>
+      <div class="dropdown">
+        <button class="dropdown-button">Settings ⚙️</button>
+        <div class="dropdown-content">
+          <a href="#">Edit Profile</a>
+          <a href="#">Account</a>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <input type="radio" id="tab1" name="tab" checked>
+    <label for="tab1">Posts</label>
+    <input type="radio" id="tab2" name="tab">
+    <label for="tab2">About</label>
+
+    <div id="content1" class="tab-content">
+      <h3>Recent Posts</h3>
+      <p>Here are your latest posts.</p>
+    </div>
+    <div id="content2" class="tab-content">
+      <h3>About Me</h3>
+      <p>Username: <span class="tooltip">coder123
+        <span class="tooltip-text">This is your public username</span>
+      </span></p>
+      <p>Bio: Frontend developer who loves clean design.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+```
+
+##### Result:
+
+![Recap - UI Components](Assets/Videos/chrome_22xOZHWukn.gif)
