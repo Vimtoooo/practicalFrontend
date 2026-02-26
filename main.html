@@ -1,159 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Holy Grail Layout</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Grid Layout</title>
   <style>
-    :root {
-      --main-color: rgb(76, 175, 239); /* header/footer */
-      --accent-color: #ff9800; /* highlights */
-      --text-color: #333;
-      --heading-color: #222;
-    }
-
     body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: #a9eef3;
-      color: var(--text-color);
+      padding: 2rem;
     }
 
-    .container {
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .gallery-grid {
       display: grid;
-      grid-template-areas:
-        "header header header"
-        "nav main aside"
-        "footer footer footer";
-      grid-template-columns: 160px 1fr 180px;
-      min-height: 100vh;
-      gap: 1rem;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
     }
 
-    header, footer { text-align: center; }
-
-    header {
-      background-color: var(--main-color);
-      color: white;
-      padding: 1.5rem;
-      grid-area: header;
+    .card {
+      background-color: #f6f6f6;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
-    footer {
-      background-color: var(--main-color);
-      color: white;
-      padding: 1rem;
-      grid-area: footer;
+    .card:hover {
+      transform: scale(1.03);
     }
 
-    nav {
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      grid-area: nav;
-      margin-left: 10px;
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
     }
 
-    nav h3 {
-      margin-top: 0;
-      color: var(--heading-color);
+    .card h3 {
+      margin: 0.8rem;
+      color: #444;
     }
 
-    nav ul {
-      list-style: none;
-      padding: 0;
+    .card p {
+      margin: 0 0.8rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
     }
 
-    nav li {
-      margin: 0.5rem 0;
+    /* Tablet: 2 columns */
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      padding: 0.3rem 0.5rem;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
-
-    nav a:hover {
-      background: var(--accent-color);
-      color: white;
-    }
-
-    main {
-      padding: 1.5rem;
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      grid-area: main;
-    }
-
-    main h2 {
-      margin-top: 0;
-      color: var(--heading-color);
-    }
-
-    aside {
-      background: #fff7e6;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      grid-area: aside;
-      margin-right: 10px;
-    }
-
-    aside h3 {
-      margin-top: 0;
-      color: var(--accent-color);
-    }
-
-    aside li {
-      position: relative;
-      right: 15px;
+    /* Desktop: 3 columns */
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Travel Adventures</h1>
-      <p>Explore the world, one journey at a time</p>
-    </header>
+    <h1>Travel Gallery</h1>
 
-    <nav>
-      <h3>Navigation</h3>
-      <ul>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">Travel Tips</a></li>
-        <li><a href="#">Photo Gallery</a></li>
-      </ul>
-    </nav>
-
-    <main>
-      <h2>Featured Destination: Japan</h2>
-      <p>
-        Japan is a country where ancient traditions meet modern innovation. 
-        From the serene temples of Kyoto to the bustling streets of Tokyo, 
-        there’s something for every traveler.
-      </p>
-      <p>
-        Don’t forget to try sushi, explore cherry blossoms in spring, 
-        and relax in an onsen hot spring bath.
-      </p>
-    </main>
-
-    <aside>
-      <h3>Quick Facts</h3>
-      <ul>
-        <li>Capital: Tokyo</li>
-        <li>Language: Japanese</li>
-        <li>Currency: Yen</li>
-      </ul>
-    </aside>
-
-    <footer>
-      <p>&copy; 2025 Travel Adventures Blog</p>
-    </footer>
-  </div>
+    <div class="gallery-grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach">
+          <h3>Sunny Beach</h3>
+          <p>Relaxing views of golden sand and turquoise waters.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Mountains">
+          <h3>Mountain Escape</h3>
+          <p>Fresh air and breathtaking peaks for hiking lovers.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg" alt="City Lights">
+          <h3>City Lights</h3>
+          <p>A bustling city skyline shining bright at night.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Hutan_Tangkahan.jpg" alt="Forest">
+          <h3>Green Forest</h3>
+          <p>Peaceful trails and endless shades of green.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Caravan_in_the_desert.jpg" alt="Desert">
+          <h3>Desert Adventure</h3>
+          <p>Golden dunes stretching far into the horizon.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Lake">
+          <h3>Crystal Lake</h3>
+          <p>Mirror-like reflections surrounded by mountains.</p>
+        </div>
+    </div>
 </body>
 </html>

@@ -3325,3 +3325,185 @@ The Holy Grail will pursue the following structure.
 ##### Result:
 
 ![Holy Grail Layout](Assets/Photos/Holy%20Grail.jpg)
+
+### Card Grid Layout:
+
+A **Card Grid** is a common responsive pattern used in e-commerce sites, portfolies, or even blogs. It arranges items (like products, articles or profiles) into evenly spaced cards. Each card usually contains an image, a title, some text and sometimes a button or link.
+
+This layout is often and most recommended to be built with **CSS Grid** or optionally, with a **Flexbox**, so that the number of cards per row changes depending on screen size (e.g., 1 column on mobile, 2 - 3 on tablet, 4+ on desktop).
+
+#### Basic Syntax:
+
+First, create your HTML structure for a product listing:
+
+```html
+<div class="product-grid"> <!-- This is the main grid container -->
+  <div class="product-card">
+    <img src="product1.jpg" alt="Product 1">
+    <h3>Product Name</h3>
+    <p>$19.99</p>
+    <button>Add to Cart</button>
+  </div>
+  <!-- More product cards here -->
+</div>
+```
+
+Next, add CSS to make this responsive:
+
+```css
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* For tablets and up */
+@media (min-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* For desktops */
+@media (min-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+}
+```
+
+##### The repeat() Function:
+
+The CSS `repeat()` function is manipulated within the CSS Grid, primarily used as a value for the properties `grid-template-columns` and `grid-template-rows` to define a large number of columns or rows with a recurring pattern in a more concise way, thereby avoiding repetition in the code.
+
+Note that the `repeat(<count>, <tracks>)` takes two arguments:
+
+- `<count>` is the repetition count, where you would insert an integer to specify the quantity of times the track list should be repeated. You can alternatively use the `auto-fill` or `auto-fit` values for dynamicity.
+- `<tracks>` represents the track list, for defining the size and pattern of the columns or rows to be repeated. This can be a single value or a list of values, using units like `px`, `em`, `%` and the flexible `fr` unit, or even functions like `minmax()`, `min-content()` and `max-content()`.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Grid Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #f6f6f6;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 0.8rem;
+      color: #444;
+    }
+
+    .card p {
+      margin: 0 0.8rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Tablet: 2 columns */
+    @media (min-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Desktop: 3 columns */
+    @media (min-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+    <h1>Travel Gallery</h1>
+
+    <div class="gallery-grid">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Beach">
+          <h3>Sunny Beach</h3>
+          <p>Relaxing views of golden sand and turquoise waters.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Mountains">
+          <h3>Mountain Escape</h3>
+          <p>Fresh air and breathtaking peaks for hiking lovers.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu.jpg" alt="City Lights">
+          <h3>City Lights</h3>
+          <p>A bustling city skyline shining bright at night.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Hutan_Tangkahan.jpg" alt="Forest">
+          <h3>Green Forest</h3>
+          <p>Peaceful trails and endless shades of green.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Caravan_in_the_desert.jpg" alt="Desert">
+          <h3>Desert Adventure</h3>
+          <p>Golden dunes stretching far into the horizon.</p>
+        </div>
+    
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" alt="Lake">
+          <h3>Crystal Lake</h3>
+          <p>Mirror-like reflections surrounded by mountains.</p>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Card Grid Layout](Assets/Videos/chrome_GJTl1G70sW.gif)
