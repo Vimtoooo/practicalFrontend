@@ -3507,3 +3507,169 @@ Note that the `repeat(<count>, <tracks>)` takes two arguments:
 ##### Result:
 
 ![Card Grid Layout](Assets/Videos/chrome_GJTl1G70sW.gif)
+
+### Sidebar + Content Layout:
+
+The Sidebar + Content layout is a common responsive pattern where you have a main content area and a sidebar for navigation or additional information.
+
+#### Basic Syntax:
+
+HTML
+
+```html
+<div class="container">
+  <main class="content">Main content here</main>
+  <aside class="sidebar">Sidebar content here</aside>
+</div>
+```
+
+CSS for the mobile-first approach
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 20px;
+}
+
+.sidebar {
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+```
+
+Finally, add a media query to construct a side-by-side layout on larger screens
+
+```css
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+  
+  .content {
+    flex: 3;
+  }
+  
+  .sidebar {
+    flex: 1;
+  }
+}
+```
+
+This creates a responsive layout that stacks on mobile and shows side-by-side on larger screens.
+
+![Sidebar content layout illustration](Assets/Videos/chrome_YgqFCBwZdj.gif)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sidebar + Content Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      max-width: 1100px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    
+    .content {
+      padding: 25px;
+    }
+
+    .content h2 {
+      color: #2a6592;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      margin-bottom: 1em;
+    }
+    
+    .sidebar {
+      padding: 25px;
+      background-color: #eaf3fa;
+      border-left: 3px solid #2a6592;
+    }
+    
+    .sidebar h3 {
+      margin-bottom: 15px;
+      color: #2a6592;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sidebar li {
+      margin: 10px 0;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #2a6592;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .sidebar a:hover {
+      color: #17405d;
+    }
+
+    @media (min-width: 768px) {
+      .container { flex-direction: row; }
+      .sidebar { flex: 30%; }
+      .content { flex: 70%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <main class="content">
+      <h2>Exploring Italy: A Travel Story</h2>
+      <p>Italy is a country full of culture, history, and delicious food. From the romantic canals of Venice to the ancient ruins of Rome, every corner tells a story.</p>
+      <p>During my trip, I explored Florence’s Renaissance art, enjoyed authentic pizza in Naples, and relaxed on the beautiful Amalfi Coast. Each city offered something unique and unforgettable.</p>
+      <p>If you’re planning a trip, I recommend taking the time to explore both big cities and small villages. You’ll find hidden gems, welcoming locals, and memories that last forever.</p>
+    </main>
+    <aside class="sidebar">
+      <h3>More Travel Guides</h3>
+      <ul>
+        <li><a href="#">Top 10 Things to Do in Rome</a></li>
+        <li><a href="#">A Foodie’s Guide to Naples</a></li>
+        <li><a href="#">Venice on a Budget</a></li>
+        <li><a href="#">Best Beaches of Amalfi Coast</a></li>
+      </ul>
+    </aside>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Sidebar + Content Layout](Assets/Videos/NVIDIA_Overlay_BGAJlTMiDN.gif)
