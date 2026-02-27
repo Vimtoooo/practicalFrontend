@@ -3673,3 +3673,169 @@ This creates a responsive layout that stacks on mobile and shows side-by-side on
 ##### Result:
 
 ![Sidebar + Content Layout](Assets/Videos/NVIDIA_Overlay_BGAJlTMiDN.gif)
+
+### Split Screen Layout:
+
+Split screen layouts divide the viewport into two distinct sections, typically side-by-side. This pattern is effective for **comparing content, showcasing dual themes, or separating navigation from main content**.
+
+#### Basic Syntax:
+
+First, create the HTML structure:
+
+```html
+<div class="split-screen">
+  <div class="split-screen__left">
+    <h2>Left Side</h2>
+    <p>This is the left side content.</p>
+  </div>
+  <div class="split-screen__right">
+    <h2>Right Side</h2>
+    <p>This is the right side content.</p>
+  </div>
+</div>
+```
+
+Now, let's add the CSS to create out split screen layout:
+
+```css
+.split-screen {
+  display: flex;
+  flex-direction: column;
+}
+
+/* On mobile, the sections stack vertically */
+.split-screen__left {
+  background-color: #f0f0f0;
+}
+
+.split-screen__right {
+  background-color: #e0e0e0;
+}
+
+/* On larger screens, they display side by side */
+@media (min-width: 768px) {
+  .split-screen {
+    flex-direction: row;
+  }
+  
+  .split-screen__left,
+  .split-screen__right {
+    flex: 1;
+  }
+}
+```
+
+![Split Screen layout illustration](Assets/Videos/chrome_QE77k1PaPi.gif)
+
+This layout starts as a **vertical stack** on mobile devices, following our mobile-first approach. When the screen width reaches 768px or larger, the layout changes to a **horizontal split**.
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Split Screen Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .left,
+    .right {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .left h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .right h2 {
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      background: #4a90e2;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #357ab7;
+    }
+
+    @media (min-width: 768px) {
+      .container { flex-direction: row; }
+      .left {
+        background-color: rgb(74, 144, 226);
+        color: rgb(255, 255, 255);
+        flex: 1;
+      }
+      .right {
+        background-color: rgb(255, 255, 255);
+        color: rgb(51, 51, 51);
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h1>Welcome!</h1>
+      <p>Discover new opportunities, connect with others, and grow with us.</p>
+    </div>
+    <div class="right">
+      <h2>Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <button type="submit">Join Now</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Split Screen Layout](Assets/Videos/chrome_MhQ2mGM3U4.gif)
