@@ -3328,7 +3328,7 @@ The Holy Grail will pursue the following structure.
 
 ### Card Grid Layout:
 
-A **Card Grid** is a common responsive pattern used in e-commerce sites, portfolies, or even blogs. It arranges items (like products, articles or profiles) into evenly spaced cards. Each card usually contains an image, a title, some text and sometimes a button or link.
+A **Card Grid** is a common responsive pattern used in e-commerce sites, portfolios, or even blogs. It arranges items (like products, articles or profiles) into evenly spaced cards. Each card usually contains an image, a title, some text and sometimes a button or link.
 
 This layout is often and most recommended to be built with **CSS Grid** or optionally, with a **Flexbox**, so that the number of cards per row changes depending on screen size (e.g., 1 column on mobile, 2 - 3 on tablet, 4+ on desktop).
 
@@ -3998,3 +3998,156 @@ main {
 ##### Result:
 
 ![Sticky Header / Footer](Assets/Videos/chrome_RVM5Rxci6k.gif)
+
+### Recap - Responsive Designs:
+
+Recap time!
+
+* **Holy Grail Layout**: The classic web design pattern with a header at the top, a footer at the bottom and three columns in the middle:
+  - Left sidebar (navigation or links)
+  - Main content (center)
+  - Right sidebar (extra info, ads or widgets)
+* **Card Grid Layout**: A common responsive pattern used in **e-commerce sites, portfolios, or even blogs**. It arranges items (like products, articles or profiles) into evenly spaced cards. Each card usually contains an image, a title, some text and sometimes a button or link.
+* **Sidebar + Content Layout**: The Sidebar + Content layout is also a common responsive pattern where you have a main content area and a sidebar for navigation or additional information, but they would be in separate areas (the navigation bar facilitated the maneuverability during website dislocation).
+* **Split Screen Layout**: Split screen layouts divide the viewport into two distinct sections, typically side-by-side. This pattern is effective for **comparing content, showcasing dual themes, or separating navigation from main content**. This is quite similar to the sidebar + content layout, but this can be used not just for navigation, but for many use cases!
+* **Sticky Header/Footer**: A **Sticky header** (or footer) stays visible at the top (or bottom) of the page when you scroll. This makes navigation or important info always accessible without the user needing to scroll back.
+
+#### Example of a Webpage:
+
+For this recap example, we will utilize the **holy grail layout**!
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recap Challenge</title>
+  <style>
+    :root {
+      --main-color: #2e7d32; /* green theme */
+      --secondary-color: #fff;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav main aside"
+        "footer footer footer";
+      grid-template-columns: 150px 1fr 150px;
+      min-height: 100vh;
+      gap: 1rem;
+    }
+
+    header {
+      grid-area: header;
+      background: var(--main-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    footer {
+      grid-area: footer;
+      background: var(--main-color);
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    nav {
+      grid-area: nav;
+      background: #c8e6c9;
+      padding: 1rem;
+    }
+
+    main {
+      grid-area: main;
+      background: #fff;
+      padding: 1.5rem;
+    }
+
+    aside {
+      grid-area: aside;
+      background: #dcedc8;
+      padding: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 0.5rem 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #2e7d32;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "main"
+          "aside"
+          "nav"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Amazon Rainforest</h1>
+            <p>The Lungs of the Earth</p>
+        </header>
+        <nav>
+        <h3>Sections</h3>
+            <ul>
+              <li><a href="#">Biodiversity</a></li>
+              <li><a href="#">Conservation</a></li>
+              <li><a href="#">Climate Impact</a></li>
+              <li><a href="#">Facts</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Why the Amazon is Vital</h2>
+            <p>
+              The Amazon Rainforest is home to over 10% of the known species on Earth. 
+              Its trees produce about 20% of the world's oxygen, making it crucial for global climate regulation.
+            </p>
+            <p>
+              Conservation efforts are critical as deforestation continues to threaten this vital ecosystem. 
+              Protecting the Amazon helps preserve biodiversity, local communities, and climate stability.
+            </p>
+        </main>
+        <aside>
+            <h3>Quick Facts</h3>
+            <ul>
+              <li>Area: 5.5 million km²</li>
+              <li>Countries: 9 (mostly Brazil)</li>
+              <li>Estimated trees: 390 billion</li>
+            </ul>
+        </aside>
+        <footer>
+            <p>&copy; 2025 Rainforest Awareness</p>
+        </footer>
+    </div>
+</body>
+</html>
+```
+
+##### Result:
+
+![Recap - Responsive Designs](Assets/Videos/chrome_aJ4nUpvzW2.gif)
