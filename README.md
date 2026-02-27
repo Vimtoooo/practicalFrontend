@@ -3839,3 +3839,162 @@ This layout starts as a **vertical stack** on mobile devices, following our mobi
 ##### Result:
 
 ![Split Screen Layout](Assets/Videos/chrome_MhQ2mGM3U4.gif)
+
+### Sticky Header / Footer:
+
+A **Sticky header** (or footer) stays visible at the top (or bottom) of the page when you scroll. This makes navigation or important info always accessible without the user needing to scroll back.
+
+#### Common Use Cases:
+
+It's quite common for:
+
+* Website navigation bars (sticky header)
+* "Buy Now" or "Contact" bars (sticky footer)
+* Mobile apps where key actions must stay on screen
+
+#### Basic Syntax:
+
+You can create a sticky header or footer using the `position: sticky` or `position: fixed` property and value combinations!
+
+> [!NOTE]
+> For the sticky header/footer to work, it is essential to define a `top` property with a value, because if the `top` property is absent, the sticky header technique won't stay at the top when we scroll.
+
+##### Sticky Header Example:
+
+HTML
+
+```html
+<header>
+  <h1>My Website</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <p>Lots of content here...</p>
+  <p>Keep scrolling down to see the header stay in place.</p>
+</main>
+```
+
+CSS
+
+```css
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 1rem;
+  text-align: center;
+}
+
+main {
+  padding: 2rem;
+  height: 2000px; /* just to create scroll */
+}
+```
+
+![Sticky Header illustration](Assets/Videos/chrome_XQY0tLisbg.gif)
+
+#### Example of Usage:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sticky Header / Footer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #4f8e1a;
+      text-align: center;
+      z-index: 100;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      position: sticky;
+      bottom: 0;
+      background-color: #ff12f5;
+      text-align: center;
+      margin-top: auto;
+      z-index: 100;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.2);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    h2 {
+      margin-top: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Secrets of Longevity</h1>
+  </header>
+
+  <main>
+    <h2>What Are Blue Zones?</h2>
+    <p>Blue Zones are regions of the world where people live much longer than average. Researchers identified several key areas, including Okinawa (Japan), Sardinia (Italy), Nicoya (Costa Rica), Ikaria (Greece), and Loma Linda (California, USA).</p>
+
+    <h2>Common Habits of Long-Lived People</h2>
+    <p>People in Blue Zones often share similar lifestyle habits that contribute to longevity:</p>
+    <ul>
+      <li>Plant-based diets rich in vegetables, beans, and whole grains.</li>
+      <li>Regular physical activity integrated into daily life, like walking or gardening.</li>
+      <li>Strong social connections and family support.</li>
+      <li>Stress reduction through meditation, prayer, or relaxation rituals.</li>
+      <li>Having a sense of purpose, which motivates daily life.</li>
+    </ul>
+
+    <h2>Why Longevity Matters</h2>
+    <p>Studying Blue Zones helps us understand how lifestyle, diet, and community can increase lifespan and improve quality of life. Adopting even a few of these habits can lead to a healthier, happier life.</p>
+
+    <p>Remember, longevity isn’t just about living longer — it’s about living well.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Longevity Insights</p>
+  </footer>
+
+</body>
+</html>
+```
+
+##### Result:
+
+![Sticky Header / Footer](Assets/Videos/chrome_RVM5Rxci6k.gif)

@@ -3,100 +3,36 @@
 <head>
   <title>Split Screen Layout</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
     }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .left,
-    .right {
-      padding: 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    header {
+      position: sticky;
+      top: 1rem;
       text-align: center;
     }
 
-    .left h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .right h2 {
-      margin-bottom: 1rem;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      max-width: 300px;
-    }
-
-    input {
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    button {
-      padding: 10px;
-      border: none;
-      background: #4a90e2;
-      color: white;
-      font-weight: bold;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #357ab7;
-    }
-
-    @media (min-width: 768px) {
-      .container { flex-direction: row; }
-      .left {
-        background-color: rgb(74, 144, 226);
-        color: rgb(255, 255, 255);
-        flex: 1;
-      }
-      .right {
-        background-color: rgb(255, 255, 255);
-        color: rgb(51, 51, 51);
-        flex: 1;
-      }
+    main {
+      padding: 2rem;
+      height: 2000px; /* just to create scroll */
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="left">
-      <h1>Welcome!</h1>
-      <p>Discover new opportunities, connect with others, and grow with us.</p>
-    </div>
-    <div class="right">
-      <h2>Sign Up</h2>
-      <form>
-        <input type="text" placeholder="Your Name">
-        <input type="email" placeholder="Your Email">
-        <button type="submit">Join Now</button>
-      </form>
-    </div>
-  </div>
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>Lots of content here...</p>
+    <p>Keep scrolling down to see the header stay in place.</p>
+  </main>
 </body>
 </html>
