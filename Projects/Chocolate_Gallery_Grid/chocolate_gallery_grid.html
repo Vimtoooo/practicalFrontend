@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chocolate Gallery Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f5f2;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4e342e;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Tablet layout */
+  
+    /* Desktop layout */
+
+    .card {
+      position: relative;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #3e2723;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      padding: 10px 15px;
+      border: none;
+      background: #6d4c41;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background: #4e342e;
+    }
+
+    /* Badge */
+    .badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff7043;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 5px 8px;
+      border-radius: 12px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    /* 2 columns on tablets */
+    @media (min-width: 600px) {
+        .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* 3 columns on desktops */
+    @media (min-width: 900px) {
+        .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Chocolate Gallery</h1>
+
+  <div class="gallery">
+    <div class="card">
+      <div class="badge">Best Seller</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Ritter_Sport_dark_chocolate.jpg" alt="Dark Chocolate">
+      <div class="card-content">
+        <h3>Dark Chocolate</h3>
+        <p>Rich and intense flavor, perfect for true chocolate lovers.</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Milka_Alpine_Milk_Chocolate_bar_100g.jpg" alt="Milk Chocolate">
+      <div class="card-content">
+        <h3>Milk Chocolate</h3>
+        <p>Creamy and sweet, the classic favorite for all ages.</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/White_chocolate_with_rose_petals.jpg" alt="White Chocolate">
+      <div class="card-content">
+        <h3>White Chocolate</h3>
+        <p>Smooth and buttery, with a delicate vanilla flavor.</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
