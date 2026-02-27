@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Explorer Profile Card</title>
+  <style>
+    /* Variables */
+    :root {
+      --primary-color: #5f5f5f;
+      --text-color: #1f1f1f;
+      --bg-color: #fa13fa;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      color: var(--text-color);
+      padding: 20px;
+    }
+
+    .card-content h2 {
+      color: var(--primary-color);
+      margin-top: 0;
+    }
+
+    .card-content p {
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .card-content button {
+      color: var(--text-color);
+      background-color: #555;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .card-content button:hover {
+      background-color: #1b4f72;
+    }
+
+    /* Larger screens → side by side */
+    @media (min-width: 768px) {
+        .card {
+            flex-direction: row;
+        }
+        .card img {
+            flex: 1;
+            width: 70%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .card-content { flex: 1; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Amelia_Earhart_standing_under_nose_of_her_Lockheed_Model_10-E_Electra%2C_small.jpg" alt="Amelia Earhart">
+    <div class="card-content">
+      <h2>Amelia Earhart</h2>
+      <p>Amelia Earhart was a pioneering American aviator who became the first woman to fly solo across the Atlantic Ocean. She inspired generations with her courage and adventurous spirit.</p>
+      <button>Read More</button>
+    </div>
+  </div>
+
+</body>
+</html>
